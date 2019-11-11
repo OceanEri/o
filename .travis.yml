@@ -9,8 +9,6 @@ branches: # 指定要构建的分支
   - hexo
 
 before_install:
-- git config --global user.name "[你的Github帐号名]"
-- git config --global user.email "[你的Github邮箱]"
 - npm install -g hexo-cli
 
 # Start: Build Lifecycle
