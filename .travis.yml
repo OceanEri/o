@@ -4,13 +4,13 @@ node_js:
   - stable # 指定 NodeJS 版本
 sudo: required # 是否需要 sudo 权限
 
-before_install:
-  - npm install -g hexo-cli
+branches: # 指定要构建的分支
+  only: # only 表示只构建以下分支
+  - writing
 
 # Start: Build Lifecycle
-install:
-  - npm install
-  - npm install hexo-deployer-git --save
+install: # 在安装项目环境阶段需要运行的命令，一条一行，类似的还有 before_install
+  - source travis_env_init.sh # 执行指定的 shell 脚本来做初始化
 
 # 执行清缓存，生成网页操作
 script:
@@ -22,3 +22,5 @@ after_success:
 
 notifications: # 设置通知项
   email: true
+
+  98b4231c47daa56c3b51b85a0056d3c6813297b3
