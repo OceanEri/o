@@ -20,6 +20,14 @@ script:
 after_success:
   - hexo deploy
 
+deploy:
+- type: git
+  #repo: git@github.com:epson-lee/EPSON-LEE.github.io.git/0/
+  #下方的gh_token会被.travis.yml中sed命令替换
+  #sed -i'' "s~git@github.com:~https://s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
+  repo: https://github_token@github.com/EPSON-LEE/git@github.com:EPSON-LEE/o.git
+  branch: master
+
 notifications:
   email:
     - 491071291@qq.com

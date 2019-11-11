@@ -5,5 +5,3 @@ npm install -g hexo
 npm install -g hexo-cli
 # 安装 package.json 中的依赖
 npm install
-
-sed -i'' "s~git@github.com:~https://s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
