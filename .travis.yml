@@ -20,5 +20,8 @@ script:
 after_success:
   - hexo deploy
 
-notifications: # 设置通知项
-  email: true
+notifications:
+  email:
+    - 491071291@qq.com
+  on_success: change
+  on_failure: always
