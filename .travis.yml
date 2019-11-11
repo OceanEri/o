@@ -25,7 +25,7 @@ after_success:
   - git init
   - git add --all .
   - git commit -m "Travis CI Auto Builder"
-  - git push --quiet --force https://$GIT_REPO_TOKEN@https://github.com/EPSON-LEE/o master:master
+  - git push --quiet --force https://$GIT_REPO_TOKEN@github.com/EPSON-LEE/o master:master
 
 notifications:
   email:
