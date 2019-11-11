@@ -20,9 +20,12 @@ script:
   - hexo clean
   - hexo generate
 
-deploy:
-  - sed -i'' "s~git@github.com:~https://s~git@github.com:~https://${GIT_REPO_TOKEN}@github.com/~" _config.yml
-  - hexo deploy
+after_success:
+  - cd ./public
+  - git init
+  - git add --all .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --quiet --force https://$GIT_REPO_TOKEN@https://github.com/EPSON-LEE/o master:master
 
 notifications:
   email:
