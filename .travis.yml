@@ -25,10 +25,5 @@ script:
 after_script:
   - hexo deploy
 
-deploy:
-  - type: git
-    repo: git@github.com:EPSON-LEE/o.git
-    branch: master
-
 notifications: # 设置通知项
   email: true
