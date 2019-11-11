@@ -22,5 +22,3 @@ after_success:
 
 notifications: # 设置通知项
   email: true
-
-  98b4231c47daa56c3b51b85a0056d3c6813297b3
