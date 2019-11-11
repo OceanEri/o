@@ -94,8 +94,9 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+## git@github.com:researchlab/researchlab.github.io.git
 deploy:
   type: git
-  #repository: https://github.com/EPSON-LEE/o
-  repo: https://github_token@github.com/EPSON-LEE/EPSON-LEE.github.io/o/
+  repository: git@github.com:EPSON-LEE/o.git
+  # repo: https://github_token@github.com/EPSON-LEE/EPSON-LEE.github.io/o/
   branch: master
