@@ -8,13 +8,14 @@ branches: # 指定要构建的分支
   only: # only 表示只构建以下分支
   - hexo
 
+before_install:
+- git config --global user.name "[你的Github帐号名]"
+- git config --global user.email "[你的Github邮箱]"
+- npm install -g hexo-cli
+
 # Start: Build Lifecycle
 install: # 在安装项目环境阶段需要运行的命令，一条一行，类似的还有 before_install
   - source travis_env_init.sh # 执行指定的 shell 脚本来做初始化
-
-  # 设置git提交名，邮箱；替换真实token到_config.yml文件
-before_script:
-
 # 执行清缓存，生成网页操作
 script:
   - hexo clean
@@ -26,6 +27,7 @@ after_success:
   - git add --all .
   - git commit -m "Travis CI Auto Builder"
   - git push --quiet --force https://$GIT_REPO_TOKEN@github.com/EPSON-LEE/o master:master
+
 
 notifications:
   email:
