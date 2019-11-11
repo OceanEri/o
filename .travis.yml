@@ -4,10 +4,6 @@ node_js:
   - stable # 指定 NodeJS 版本
 sudo: required # 是否需要 sudo 权限
 
-branches: # 指定要构建的分支
-  only: # only 表示只构建以下分支
-  - hexo
-
 before_install:
   - npm install -g hexo-cli
 
@@ -21,8 +17,7 @@ script:
   - hexo clean
   - hexo generate
 
-# 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
-after_script:
+after_success:
   - hexo deploy
 
 notifications: # 设置通知项
