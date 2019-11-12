@@ -8,6 +8,8 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 ### Create a new post
 
-``` bash
-尝试修改22222
+``` javascript
+var a = 111
+var b = 222
+console.log(a + b)
 ```
