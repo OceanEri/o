@@ -44,9 +44,9 @@ search:
   type: insight
 
 # Share plugin settings.
-share:
-  type: sharethis
-  install_url:
+# share:
+#   type: sharethis
+#   install_url:
 
 # Additional navigation bar links on the right.
 # Links can either be text or icon. The following link is set to be an icon link whose icon
