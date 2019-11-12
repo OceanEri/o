@@ -10,7 +10,6 @@ keywords:
 author: leejiahao
 language: 
   - zh-cn
-  - en
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -34,11 +33,11 @@ skip_render:
 
 # Navigation bar menu links.
 menu:
-  Archives: /archives
-  Lifestyle: /categories/LifeStyle
-  Music: /categories/Music
-  Technology: /categories/Technology
-  About: /about
+  归档: /archives
+  # Lifestyle: /categories/LifeStyle
+  # Music: /categories/Music
+  # Technology: /categories/Technology
+  # About: /about
 
 # Search plugin settings.
 search:
