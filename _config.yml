@@ -3,12 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: O
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: leejiahao
+language: 
+  - zh-cn
+  - en
 timezone: ''
 
 # URL
