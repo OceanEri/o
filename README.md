@@ -12,3 +12,4 @@
 ## plugins
 
 - Google Analytics
+- Google SiteMaps
