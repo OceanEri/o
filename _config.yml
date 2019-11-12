@@ -37,7 +37,7 @@ menu:
   # Lifestyle: /categories/LifeStyle
   # Music: /categories/Music
   # Technology: /categories/Technology
-  # About: /about
+  关于: /about
 
 # Search plugin settings.
 search:
