@@ -126,7 +126,7 @@ plugins:
   gallery: true
   clipboard: true
   google-analytics:
-    tracking_id: G-RN1BVXFNM1
+    tracking_id: UA-152053462-1
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
