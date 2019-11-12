@@ -11,15 +11,15 @@ author: leejiahao
 language: 
   - zh-cn
   - en
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://epson-lee.github.io/o/
 root: https://epson-lee.github.io/o/
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:title/ # 文章的永久链接
 permalink_defaults:
-pretty_urls:
+pretty_urls:        # 使用permalink 来美化 URL
   trailing_index: true # Set to false to remove trailing index.html from permalinks
 
 # Directory
@@ -31,6 +31,37 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+# Navigation bar menu links.
+menu:
+  Archives: /archives
+  Lifestyle: /categories/LifeStyle
+  Music: /categories/Music
+  Technology: /categories/Technology
+  About: /about
+
+# Search plugin settings.
+search:
+  type: insight
+
+# Share plugin settings.
+share:
+  type: sharethis
+  install_url:
+
+# Additional navigation bar links on the right.
+# Links can either be text or icon. The following link is set to be an icon link whose icon
+# is set to the class name of a FontAwesome 5 icon. The `footer_links` below also gives an
+# example of setting plain text links.
+navbar_links:
+  GitHub:
+    icon: fab fa-github
+    url: https://github.com/EPSON-LEE
+
+# Links at the bottom of the page.
+footer_links:
+  GitHub: https://github.com/EPSON-LEE
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
