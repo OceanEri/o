@@ -119,6 +119,15 @@ include:
 exclude:
 ignore:
 
+# plugins
+plugins:
+  mathjax: true
+  katex: false
+  gallery: true
+  clipboard: true
+  google-analytics:
+    tracking_id: G-RN1BVXFNM1
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
