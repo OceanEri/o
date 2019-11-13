@@ -17,7 +17,7 @@ tags: [web security, web fronted]
 
 浏览器自身默认不会将用户输入的值同步到 value 中, 但像一些框架会将用户输入值同步到 value 中。[Demo Link](https://codepen.io/epson-lee/pen/vYYzaNb?editors=0010)
 
-![demo.gif](css-keylogger.gif)
+![demo.gif](/img/css-keylogger.gif)
 
 将值同步到 value 之后，我们可以使用 css 来做匹配，对应的键位发送到不同的链接。
 
