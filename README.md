@@ -13,3 +13,7 @@
 
 - Google Analytics
 - Google SiteMaps
+
+## Graph
+
+- Exausted in image uploading 😢 So I chose Github + Picgo

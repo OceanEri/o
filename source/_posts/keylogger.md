@@ -17,7 +17,7 @@ tags: [web security, web fronted]
 
 浏览器自身默认不会将用户输入的值同步到 value 中, 但像一些框架会将用户输入值同步到 value 中。[Demo Link](https://codepen.io/epson-lee/pen/vYYzaNb?editors=0010)
 
-![demo.gif](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/1.gif)
+![demo.gif](https://preview.pro.ant.design/user/login?redirect=https%3A%2F%2Fpreview.pro.ant.design%2Fdashboard%2Fanalysis)
 
 将值同步到 value 之后，我们可以使用 css 来做匹配，对应的键位发送到不同的链接。
 
@@ -38,7 +38,7 @@ input[type="password"][value$="1"] {
 
 ![Error Info](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/css-keylogger-error.png)
 
-在 [antd-design-pro 示例登录页](https://preview.pro.ant.design/user/login?redirect=https%3A%2F%2Fpreview.pro.ant.design%2Fdashboard%2Fanalysis) 倒是可以。
+在 [antd-design-pro 示例登录页](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/1.gif) 倒是可以。
 
 ![Error Info](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/css-keylogger.gif)
 
