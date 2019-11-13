@@ -1,19 +1,19 @@
 # Inspired By HEXO + Github Pages + Travis Cli
 
-## Principles
+## Stack
 
   This is two Branches. Branch hexo saves hexo construct code, branch master saves static files.
   Travis is trigger by git hooks.
 
 ## Theme
 
-- minos
+- Minos
 
-## plugins
+## Site Plugins
 
 - Google Analytics
 - Google SiteMaps
 
-## Graph
+## Image hosting
 
 - Exausted in image uploading 😢 So I chose Github + Picgo
