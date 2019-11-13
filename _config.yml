@@ -48,6 +48,9 @@ search:
 #   type: sharethis
 #   install_url:
 
+
+post_asset_folder: true
+
 # Additional navigation bar links on the right.
 # Links can either be text or icon. The following link is set to be an icon link whose icon
 # is set to the class name of a FontAwesome 5 icon. The `footer_links` below also gives an
