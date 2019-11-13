@@ -17,3 +17,7 @@
 ## Image hosting
 
 - Exausted in image uploading 😢 So I chose Github + Picgo
+
+## 404
+
+- Tencent Public Benefit 404 Page
