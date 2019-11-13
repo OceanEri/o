@@ -14,8 +14,8 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://epson-lee.github.io/o/
-root: https://epson-lee.github.io/o/
+# url: https://epson-lee.github.io/o/
+# root: https://epson-lee.github.io/o/
 permalink: :year/:month/:day/:title/ # 文章的永久链接
 permalink_defaults:
 pretty_urls:        # 使用permalink 来美化 URL
