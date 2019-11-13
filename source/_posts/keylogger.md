@@ -36,7 +36,7 @@ input[type="password"][value$="1"] {
 
 在知道可以使用 css 来记录按键之后我兴冲冲的找到对应的 github demo，按照文档所说打开 [https://instagram.com](https://instagram.com)，安装 Chrome Extension、输入密码但却然而却发现并没有记录到信息，出现了如下的错误信息：
 
-![Error Info](css-keylogger-error.png)
+![Error Info](img/css-keylogger-error.png)
 
 在 [antd-design-pro 示例登录页](https://preview.pro.ant.design/user/login?redirect=https%3A%2F%2Fpreview.pro.ant.design%2Fdashboard%2Fanalysis) 倒是可以。
 
