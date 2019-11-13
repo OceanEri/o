@@ -17,7 +17,7 @@ tags: [web security, web fronted]
 
 浏览器自身默认不会将用户输入的值同步到 value 中, 但像一些框架会将用户输入值同步到 value 中。[Demo Link](https://codepen.io/epson-lee/pen/vYYzaNb?editors=0010)
 
-![demo.gif](https://preview.pro.ant.design/user/login?redirect=https%3A%2F%2Fpreview.pro.ant.design%2Fdashboard%2Fanalysis)
+![demo.gif](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/css-keylogger.gif)
 
 将值同步到 value 之后，我们可以使用 css 来做匹配，对应的键位发送到不同的链接。
 
@@ -39,8 +39,6 @@ input[type="password"][value$="1"] {
 ![Error Info](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/css-keylogger-error.png)
 
 在 [antd-design-pro 示例登录页](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/1.gif) 倒是可以。
-
-![Error Info](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/css-keylogger.gif)
 
 这是因为 [https://instagram.com](https://instagram.com) 使用了 CSP (Content Security Policy)。 说白了就是为了页面安全而制定的一系列防护措施，通过CSP所约束的规则制定可信的内容来源（脚本、图片、iframe、fton、style 等可能的远程资源）。
 
