@@ -1,14 +1,6 @@
 ---
-title: 关于
+title: 对自己说的话
 date: 2019-11-12 16:46:05
 ---
 
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
-
-## Quick Start
-
-### Create a new post
-
-``` bash
-尝试修改22222
-```
+希望自己能够摆脱信息焦虑并且不那么急功近利，面对扑面而来的信息轰炸时保持自己清醒的头脑。
