@@ -4,6 +4,8 @@ date: 2019-11-21 17:29:50
 tags: ["编码"]
 ---
 
+![](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191122111156.png)
+
 一直以来受到技术论坛的“荼毒”，要阅读源码。我也就按照很多论坛中说的那样，git clone 一份代码就开始看，结局都不怎么好。主要还是因为以下几种原因：
 
 > 技术方面说：
