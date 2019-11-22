@@ -15,4 +15,6 @@ tags: [Node, JavaScript]
 
 ## 文章
 
+[全面了解 Stream - Stream handlebook](https://github.com/jabez128/stream-handbook)
+
 [Node.js Stream 基础篇](https://tech.meituan.com/2016/07/08/stream-basics.html)
