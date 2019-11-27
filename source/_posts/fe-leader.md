@@ -4,6 +4,8 @@ date: 2019-11-27 18:07:17
 tags: ["项目管理", "技术视野"]
 ---
 
+![how to build a building a building](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191127184203.png)
+
 很长一段时间都在和 SRE、Infra 合作主要做的是一些比较基础的服务。 这篇文章主要记录工作中做过的和自己见过的重要的东西，想象如果自己有一天到了一家没有技术的公司自己都得做什么。
 
 
