@@ -1,7 +1,7 @@
 ---
 title: 浏览器概览
 date: 2019-11-28 10:20:36
-tags: ["浏览器"、"线程"、"browser"]
+tags: [浏览器, 线程, browser]
 ---
 
 ![](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191128115319.png)
