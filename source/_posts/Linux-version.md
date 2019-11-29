@@ -14,7 +14,7 @@ tags: [Linux, Node]
 
 > 答： glibc 是一个 C 语言 运行时库, 例如 printf(3) fopen(3)
 
-> 答： glib 是一个基于 C 语言的工具库，同时还 i也是一个面向对象的事件循环
+> 答： glib 是一个基于 C 语言的工具库，同时也是一个面向对象的事件循环
 
 > 答： gnulib 是一个适配 POSIX API 和 native API 的库。
 
