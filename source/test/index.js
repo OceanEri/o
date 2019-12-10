@@ -86,3 +86,6 @@ const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
   Maybe.of = function (value) {
     return new Maybe(value)
   }
+
+  // Monald 函子
+
