@@ -311,6 +311,6 @@ let promise2 = new Promise(function (resolve, rejected) {
 拓展
 
 - [国内绝大部分 Task MicroTask 的来源](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-- [评论区：Monald 实现Promise](https://zhuanlan.zhihu.com/p/21834559)
+- [评论区：Monad的Data.task 实现Promise ](https://github.com/folktale/data.task/blob/master/lib/task.js)
 
 
