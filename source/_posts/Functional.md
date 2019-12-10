@@ -4,7 +4,7 @@ date: 2019-12-10 21:09:49
 tags: [JavaScript]
 ---
 
-```
+```JavaScript
 //  reduce 非常强大 map、filter、forEach 函数都可以使用 reduce 实现
 
 
