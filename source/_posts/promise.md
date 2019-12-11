@@ -139,6 +139,15 @@ class MyPromise {
 
     // inner resolve
     let _resolved = (value) => {
+      /**
+       * 这里增加 setTimeout 是为了避免这种情况的出现
+       *  promise2 = new MyPromise(function(resolve, reject) {
+       *    promise2().then(() => {
+       *      console.log(1111)
+       *    })
+       *  })
+       * 
+       */
       setTimeout(() => {
         if (this.status === PENDING) {
           this.status = RESOLVED

@@ -95,3 +95,7 @@ setTimeout和setInterval的运行机制，是将指定的代码移出本轮事�
 ## 问题遗留
 
 process.nextTick process.setImmediate setTimeout 的区别
+
+引用：
+
+- [Vue 中如何使用 MutationObserver 做批量处理？](https://www.zhihu.com/question/55364497)

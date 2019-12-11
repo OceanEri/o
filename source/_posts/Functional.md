@@ -84,25 +84,7 @@ const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
   */
 
   //  Maybe Functor
-
-  class Maybe {
-    constructor(value) {
-      this.value
-    }
-    map(fn) {
-      return this.value ? Maybe.of(fn(this.value)) : Maybe.of(null)
-    }
-    join() {
-      return this.value
-    }
-    chain(fn) {
-      return this.map(fn).join()
-    }
-    static of(value) {
-      return new Maybe(value)
-    }
-  }
-
+  
 class Maybe {
   constructor (value) {
     this.value = value ;
