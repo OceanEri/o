@@ -89,3 +89,22 @@ const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
 
   // Monald 函子
 
+
+
+
+  // 实现 filter
+  const selfFilter = (arr, callback) => arr.reduce((newArr, item) => {
+    return callback(item) ? newArr.push(item) : newArr
+  })
+
+  // 实现 map
+  const selfMap = (arr, fn) => arr.reduce((newArr, item) => {
+    return  newArr.push(fn(arr))
+  })
+
+  
+const pipe = (...fn) => x => fn.reduce((v, f) => f(v), x)
+
+const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
+
+const getAccu = (...agrs) => agrs.reduce((accu, item) => accu + item, 0)

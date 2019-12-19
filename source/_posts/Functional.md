@@ -40,9 +40,9 @@ const map = (fn, arr) => arr.reduce((acc, item, index, arr) => {
 
 //  filter 中的判断函数称为 predicate function
 
-const filter = (fn, arr) => (newArr, item) => {
+const filter = (fn, arr) => arr.reduce((newArr, item) => {
   return fn(item) ? newArr.concat(item) : newArr // predicate function
-}
+})
 
 // 使用 reduce 实现 forEach
 
@@ -61,13 +61,21 @@ const filter = (fn, arr) => (newArr, item) => {
 const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
 
 
+// 使用 reduce 实现 reduceRight
+
+
+
 // 使用 reduce 实现 pipe 函数
 
 /**
  * pipe(h, g, f)
  * f(g(h(x)))
  */
- const pipe = (...fn) => fn.reduce((v, f) => f(v), x)
+ const pipe = (...fn) => x => fn.reduce((v, f) => f(v), x)
+
+// test args
+
+const test = (...args) => console.log(args)
 
 /**
  * 同一性
