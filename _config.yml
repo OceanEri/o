@@ -123,7 +123,6 @@ ignore:
 
 # plugins
 plugins:
-  mathjax: true
   katex: false
   gallery: true
   clipboard: true
@@ -134,14 +133,6 @@ plugins:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: minos
-
-# Math Notation
-math:
-  engine: 'mathjax' # or 'katex'
-  mathjax:
-    # src: custom_mathjax_source
-    config:
-      # MathJax config
 
 markdown_it_plus:
   highlight: true
