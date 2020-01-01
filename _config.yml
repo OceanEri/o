@@ -143,6 +143,12 @@ math:
     config:
       # MathJax config
 
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: false
+  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
