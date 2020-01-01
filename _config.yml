@@ -143,11 +143,17 @@ math:
     config:
       # MathJax config
 
-# MathJax Support
-mathjax:
-  enable: true
-  per_page: false
-  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  pre_class: highlight
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
