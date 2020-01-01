@@ -25,3 +25,7 @@
 ## 404
 
 - Tencent Public Benefit 404 Page
+
+## Mathematical Notation
+
+- mathJax

@@ -11,8 +11,8 @@
  */
 
 const map = (fn, arr) => arr.reduce((acc, item, index, arr) => {
-    return acc.concat(fn(item, index, arr))
-  }, [])
+  return acc.concat(fn(item, index, arr))
+}, [])
 
 
 // 使用 reduce 实现 filter
@@ -56,53 +56,53 @@ const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
  * pipe(h, g, f)
  * f(g(h(x)))
  */
- const pipe = (...fn) => fn.reduce((v, f) => f(v), x)
+const pipe = (...fn) => fn.reduce((v, f) => f(v), x)
 
 /**
  * 同一性
  * f.map(x => x) == f
  */
 
- /**
-  * 组合性
-  * const r1 = u.map(x => f(g(x)));
-  * const r2 = u.map(g).map(f);
-  * 
-  * r1.map(trace); // 5
-  * r2.map(trace); // 5
-  */
+/**
+ * 组合性
+ * const r1 = u.map(x => f(g(x)));
+ * const r2 = u.map(g).map(f);
+ * 
+ * r1.map(trace); // 5
+ * r2.map(trace); // 5
+ */
 
-  //  MDN 迭代协议
+//  MDN 迭代协议
 
-  class Maybe {
-    constructor(value) {
-      this.value
-    }
-    map(fn) {
-      return this.value ? Maybe.of(fn(this.value)) : Maybe.of(null)
-    }
+class Maybe {
+  constructor(value) {
+    this.value
   }
-
-  Maybe.of = function (value) {
-    return new Maybe(value)
+  map (fn) {
+    return this.value ? Maybe.of(fn(this.value)) : Maybe.of(null)
   }
+}
 
-  // Monald 函子
+Maybe.of = function (value) {
+  return new Maybe(value)
+}
+
+// Monald 函子
 
 
 
 
-  // 实现 filter
-  const selfFilter = (arr, callback) => arr.reduce((newArr, item) => {
-    return callback(item) ? newArr.push(item) : newArr
-  })
+// 实现 filter
+const selfFilter = (arr, callback) => arr.reduce((newArr, item) => {
+  return callback(item) ? newArr.push(item) : newArr
+})
 
-  // 实现 map
-  const selfMap = (arr, fn) => arr.reduce((newArr, item) => {
-    return  newArr.push(fn(arr))
-  })
+// 实现 map
+const selfMap = (arr, fn) => arr.reduce((newArr, item) => {
+  return newArr.push(fn(arr))
+})
 
-  
+
 const pipe = (...fn) => x => fn.reduce((v, f) => f(v), x)
 
 const compose = (...fn) => x => fn.reduceRight((v, f) => f(v), x)
