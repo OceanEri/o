@@ -123,6 +123,7 @@ ignore:
 
 # plugins
 plugins:
+  mathjax: true
   katex: false
   gallery: true
   clipboard: true
@@ -133,18 +134,6 @@ plugins:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: minos
-
-markdown_it_plus:
-  highlight: true
-  html: true
-  xhtmlOut: true
-  breaks: true
-  langPrefix:
-  linkify: true
-  typographer:
-  quotes: “”‘’
-  pre_class: highlight
-
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
