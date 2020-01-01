@@ -69,10 +69,7 @@ comment:
     repo: git@github.com:EPSON-LEE/github-comment-minos.git          # (required) GitHub repository name
     client_id: 2c9895e2e4474c57d40c     # (required) OAuth application client id
     client_secret: cfae43956f287ab88b6bff0757cf27c2eb52101a # (required) OAuth application client secret
-    
-comment:
     type: facebook
-
 
 # Writing
 new_post_name: :title.md # File name of new posts
