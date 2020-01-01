@@ -12,12 +12,5 @@ tags:
 
 3. 抽象的方法 复合过程
 
-\hat{a}
-
-这是一个测试。                             \\
-\textbf{测试环境}：XeTeX TeXLive2008      \\
-  \begin{align}
-    E &= mc^2                              \\
-    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-\end{document}
+When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
