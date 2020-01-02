@@ -67,8 +67,8 @@ comment:
     type: gitment
     owner: EPSON-LEE     # (required) GitHub user name
     repo: git@github.com:EPSON-LEE/github-comment-minos.git          # (required) GitHub repository name
-    client_id: 2c9895e2e4474c57d40c     # (required) OAuth application client id
-    client_secret: cfae43956f287ab88b6bff0757cf27c2eb52101a # (required) OAuth application client secret
+    client_id: 3aa47c6698fed6aee8a9     # (required) OAuth application client id
+    client_secret: e729f89580f8c5d2f0824610fcc60193fdeb26a8 # (required) OAuth application client secret
 
 # Writing
 new_post_name: :title.md # File name of new posts
