@@ -30,9 +30,3 @@
 
 - MathJax
 
-## Comment
-
-- Github Application
-- Facebook
-
-
