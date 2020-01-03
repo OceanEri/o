@@ -12,7 +12,7 @@ tags:
 
 3. 抽象的方法 复合过程
 
-前缀表达式
+scheme 使用前缀表达式来写
 
 When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
@@ -30,11 +30,36 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 ```
 
 scheme 中的 cond 
-```
+```scheme
 (define (testCond x)
   (cond
     ((<= x 0) (- 0 x))
     ((> x 1) x)
   )
+)
+```
+
+scheme 中定义函数的两种形式
+
+第一种
+
+```scheme
+(define Hello
+  (
+    lambda (a b c)
+      (+ a b c)
+  )
+)
+
+(Hello 1 2 3)
+```
+
+第二种
+
+```scheme
+(
+  define 
+    ( Hello a b c)
+      (+ a b c)
 )
 ```
