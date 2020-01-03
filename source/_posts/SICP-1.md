@@ -14,3 +14,25 @@ tags:
 
 When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
+使用 scheme 写一个递归
+
+```scheme
+(define (fact n)
+  (if (= n 1)
+    1
+    (* n (fact (- n 1)))
+  )
+)
+(fact 3)
+```
+
+scheme 中的 cond 
+```
+(define (testCond x)
+  (cond
+    ((<= x 0) (- 0 x))
+    ((> x 1) x)
+  )
+)
+```
