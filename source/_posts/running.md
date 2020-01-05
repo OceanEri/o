@@ -235,6 +235,7 @@ tags: [跑步]
 
 兴许这是最累的一次42.195公里，基普乔格确实拼劲了全力。仔细看直播画面，最后几公里不经意已然流露出咬牙力撑的表情，但加速冲线时，他依然保持着微笑。这是基普乔格的招牌表情，他习惯用轻描淡写的方式去给力求结果的证明者一个答案。
 
+![](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105154119.png)
 
 关于破二的结果，基普乔格至始至终没流露出过任何遗憾。他觉得“遗憾是缺乏自律的表现”。以及，“人类的目标并不存在什么极限。”基普乔格后来自己说了个细节，跑完瞬间他忍不住流泪了。正巧当时开始下雨，泪水就得以顺其自然的藏匿起来。
 
@@ -296,3 +297,5 @@ tags: [跑步]
 ![](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200104235521.png)
 
 ![](https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200104235356.png)
+
+> 文章出处 [埃鲁德·基普乔格：成为传奇](https://zhuanlan.zhihu.com/p/49494261)
