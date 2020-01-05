@@ -18,7 +18,7 @@
 - Google Analytics
 - Google SiteMaps
 
-## Image hosting
+## Image Hosting
 
 - Exausted in image uploading 😢 So I chose Github + Picgo
 
