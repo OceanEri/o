@@ -63,3 +63,8 @@ scheme 中定义函数的两种形式
       (+ a b c)
 )
 ```
+
+参考
+- [如何理解计算机中的谓词 Predicate](https://www.zhihu.com/question/28698429)
+
+- [因为比较懒所以没有在本地搭建开发环境,直接使用的是 repl.it 这样一个 web scheme enviroment ](https://repl.it/repls/DistinctOnlyOrganization)
