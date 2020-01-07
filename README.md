@@ -1,6 +1,6 @@
 # Inspired By HEXO + Github Pages + Travis Cli
 
-## Site
+## Site Url
 
 [https://epson-lee.github.io/o/](https://epson-lee.github.io/o/)
 
@@ -31,3 +31,7 @@
 
 - MathJax
 
+## ToDo List
+
+- SEO optimizing
+- Domain name binding
