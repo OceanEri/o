@@ -21,7 +21,7 @@
 
 ## Image Hosting
 
-- Exausted in image uploading 😢 So I chose Github + Picgo
+- Exausted in image uploading So I chose Github + Picgo
 
 ## 404
 
