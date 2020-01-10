@@ -17,14 +17,14 @@ const html = compiler({ title: 'My Component' })
 document.getElementById('app').innerHTML = html
 ```
 
-模板引擎的概念是： 数据 + 模板 => HTML
+**模板引擎的概念是： 数据 + 模板 => HTML**
 
 我们可以看到 compiler ，接受的参数是 html 字符串，渲染出页面，似乎一个函数就是一个组件。
 
 
 实际上在使用 Vue 或 React 开发时，他们的输出并不是 html 字符串，而是 **Virtual Dom**
 
-数据 + 模板 => Virtual Dom
+**数据 + 模板 => Virtual Dom**
 
 以 Vue 为例，一个组件的核心其实是 render 函数，其他内容，像 data、computed、props 都是为 render 函数提供服务的。
 render 函数本可以直接生成 html 但却产出了 virtual dom， 借助 snabbdom 的 API 我们可以表达出这个公式。
