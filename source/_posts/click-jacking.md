@@ -17,6 +17,22 @@ tags: [web安全]
 4. 触屏劫持(TapJacking)
 ```
 
-## 机制
+## 手段
 
-用心
+1. iframe 覆盖，覆盖层 opacity 调为0
+
+2. 图片覆盖
+ 
+
+## 解决方法
+
+使用一个 Http Header X-Frame-Options。
+
+它有三个可选值。
+
+DENY：浏览器会拒绝当前页面加载任何frame页面；
+
+SAMEORIGIN：frame页面的地址只能为同源域名下的页面；
+
+ALLOW-FROM origin：允许frame加载的页面地址
+
