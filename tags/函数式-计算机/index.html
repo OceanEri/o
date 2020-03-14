@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    标签: 函数式 计算机 - O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#函数式 计算机</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/12/10/Functional/" itemprop="url">如何理解函数式编程</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-10T13:09:49.000Z" itemprop="datePublished">12月 10 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2121 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>要回答这个问题，需要知道什么是编程范式。</p>
+<h2 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h2><p>函数式编程范式是一种 <strong>编程范式</strong>。<br>我们通常见到的编程范式有 <strong>命令式编程(Imperative programming)</strong>、<strong>函数式编程</strong> 和 <strong>逻辑式编程</strong>，面向对象编程也属于命令式编程的一种。</p>
+<h3 id="命令式编程"><a href="#命令式编程" class="headerlink" title="命令式编程"></a>命令式编程</h3><p>命令式编程是面向<strong>计算机硬件</strong>的抽象，有<strong>变量</strong>（对应着存储单元）、<strong>赋值语句（获取指令和存储指令）</strong>，<strong>表达式（内存引用）</strong>和<strong>控制语句（跳转指令）</strong>。总而言之，命令式编程就是一个<strong>冯诺伊曼机</strong>的<em></em>指令序列**。</p>
+<h3 id="函数式编程的本质"><a href="#函数式编程的本质" class="headerlink" title="函数式编程的本质"></a>函数式编程的本质</h3><p>而函数式编程是面向数学的抽象，将计算描述为一种<strong>表达式值</strong>，可以这么说：一个函数就是一个<strong>表达式值</strong></p>
+<p>函数式编程中的函数这个术语不是说计算机中的函数（实际上为 Subroutine，而是指数学中的函数，也就是自变量的映射。也就是说一个函数的值仅决定于函数参数的值，不依赖其他状态。比如 sqrt(x)函数计算x的平方根，只要 x 不变，无论何时调用，调用几次值都是不变的。</p>
+<p>在函数式语言中，<strong>函数作为一等公民</strong>，可以在任何地方定义，在函数内或函数外，可以作为函数的参数和返回值，可以对函数进行组合。</p>
+<p>纯函数式编程中的<strong>变量</strong>也不是命令式编程中的变量，即存储状态状态的单元，而是代数中的变量，即一个值的名称。变量的值是不可变的（immutable），也就是说不允许像命令式编程语言中的那样多次给一个变量赋值。 例如 在命令式编程语言中我们写的“x = x + 1”，这依赖可变状态的事实，拿给程序看是正确的，但是拿给数学家看，却被认为这个等式为假。</p>
+<p>函数式语言的如条件语句，循环语句也不是命令式编程语言中的<strong>控制语句</strong>，而是函数式编程中的语法糖。</p>
+<p>严格意思上的函数式编程意味着不使用可变的变量，赋值，循环和其他命令式结构进行编程。</p>
+<p>从理论上说，函数式语言也不是通过<strong>冯诺伊曼</strong>体系结构的机器上运行的，而是通过<strong>λ演算</strong>来运行的，就是通过<strong>变量替换</strong>的方式进行，变量替换为其值或表达式，函数也替换为其表达式，并根据运算符进行计算。λ演算是<strong>图灵完全（Turing completeness）</strong>的，但是大多数情况，函数式程序还是被编译成（冯诺依曼机的）机器语言的指令执行的。</p>
+<h3 id="函数式编程的好处"><a href="#函数式编程的好处" class="headerlink" title="函数式编程的好处"></a>函数式编程的好处</h3><p>由于命令式编程语言也可以通过类似函数指针的方式来实现高阶函数，函数式的最主要的好处主要是不可变性带来的。没有可变的状态，函数就是引用透明（Referential transparency）的和没有副作用（No Side Effect）。<br><br>一个好处是，函数即不依赖外部的状态也不修改外部的状态，函数调用的结果不依赖调用的时间和位置，这样写的代码容易进行推理，不容易出错。这使得单元测试和调试都更容易。</p>
+<p>由于函数是引用透明的，以及函数式编程不像命令式编程那样关注执行步骤，这个系统提供了优化函数式程序的空间，包括惰性求值和并性处理。</p>
+<p>还有一个好处是，由于函数式语言是面向数学的抽象，更接近人的语言，而不是机器语言，代码会比较简洁，也更容易被理解。</p>
+<h3 id="函数式编程的特性"><a href="#函数式编程的特性" class="headerlink" title="函数式编程的特性"></a>函数式编程的特性</h3><p>由于变量值是不可变的，对于值的操作并不是修改原来的值，而是修改新产生的值，原来的值保持不便。例如一个Point类，其moveBy方法不是改变已有Point实例的x和y坐标值，而是返回一个新的Point实例。</p>
+<p><figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point</span>(<span class="hljs-params">x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">toString</span></span>() = <span class="hljs-string">"Point ("</span> + x + <span class="hljs-string">", "</span> + y + <span class="hljs-string">")"</span> </span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveBy</span></span>(deltaX: <span class="hljs-type">Int</span>, deltaY: <span class="hljs-type">Int</span>) = &#123;</span><br><span class="line">    <span class="hljs-keyword">new</span> <span class="hljs-type">Point</span>(x +   deltaX, y + deltaY)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>（示例来源：Anders Hejlsberg在echDays 2010上的演讲）</p>
+<p>同样由于变量不可变，纯函数编程语言无法实现循环，这是因为<strong>for循环</strong>使用可变的状态作为计数器，而<strong>While</strong>循环或<strong>DoWhile</strong>循环需要可变的状态作为跳出循环的条件。因此在函数式语言里就只能使用递归来解决迭代问题，这使得函数式编程严重依赖递归。</p>
+<p>通常来说，算法都有 <strong>递推 (iterative)</strong> 和 <strong>递归（recursive)</strong> 两种定义，以阶乘为例，阶乘的递推定义为：</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200110235529.png" alt></p>
+<p>阶乘的定义为</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200110235647.png" alt></p>
+<p>递推定义的计算时需要使用一个累积器保存每个迭代的中间计算结果，Java代码如下：</p>
+<p><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">fact</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="hljs-keyword">int</span> acc = <span class="hljs-number">1</span>;</span><br><span class="line">  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = <span class="hljs-number">1</span>; k &lt;= n; k++)&#123;</span><br><span class="line">    acc = acc * k;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> acc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>而递归定义的计算的Scala代码如下：</p>
+<p><figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fact</span></span>(n: <span class="hljs-type">Int</span>):<span class="hljs-type">Int</span>= &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span></span><br><span class="line">  n * fact(n<span class="hljs-number">-1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到，没有使用循环，没有使用可变的状态，函数更短小，不需要显示地使用累积器保存中间计算结果，而是使用参数n（在栈上分配）来保存中间计算结果。</p>
+<p>当然，这样的递归调用有更高的开销和局限（调用栈深度），那么尽量把递归写成尾递归的方式，编译器会自动优化为循环。</p>
+<p>一般来说，递归这种方式于循环相比被认为是更符合人的思维的，即告诉机器做什么，而不是告诉机器怎么做。递归还是有很强大的表现力的。</p>
+<h3 id="函数式语言中的特性"><a href="#函数式语言中的特性" class="headerlink" title="函数式语言中的特性"></a>函数式语言中的特性</h3><ul>
+<li>高阶函数（High-order function）</li>
+<li>偏函数（Particial Applied function）</li>
+<li>Currying</li>
+<li>闭包 （closure）</li>
+<li>惰性求值 （Lazy evaluation）、（call by need）</li>
+</ul>
+<ol>
+<li>高阶函数</li>
+</ol>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params">funcA, funcB, value</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> funcA(value) + funcB(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>偏函数</li>
+</ol>
+<p>偏函数则是固定一个函数的一个或者多个参数，也就是将一个 n 元函数转换成一个 n - x 元函数</p>
+<p>偏函数和 currying 有一定的联系</p>
+<p>引用 <a href="https://github.com/hemanth/functional-programming-jargon#partial-application" target="_blank" rel="noopener">functional-programming-jargon</a> 的话来说就是：</p>
+<blockquote>
+<p>Curried functions are automatically partially applied.</p>
+</blockquote>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 计算 a、b 的和</span></span><br><span class="line">add(a, b)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用偏函数</span></span><br><span class="line"><span class="hljs-keyword">var</span> addOne = partial(add, <span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">addOne(<span class="hljs-number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>Currying</li>
+</ol>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 执行 add 函数，一次传入两个参数即可</span></span><br><span class="line">add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 假设有一个 curry 函数可以做到柯里化</span></span><br><span class="line"><span class="hljs-keyword">var</span> addCurry = curry(add);</span><br><span class="line">addCurry(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>) <span class="hljs-comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<p>4.惰性求值</p>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">b</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line">a(<span class="hljs-number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>函数式编程是给软件开发者提供的另一套工具箱，为我们提供了另外一种抽象和思考的方式。 函数式编程也有不太擅长的场合，比如处理可变状态和处理IO，要么引入可变变量，要么通过<strong>Monad</strong>来进行封装（如State Monad和IO Monad）</p>
+<p>参考资料</p>
+<ul>
+<li><p><a href="https://www.zhihu.com/question/28292740" target="_blank" rel="noopener">本文大部分都参考了这篇文章：如何理解函数式编程 中「用心阁」的回答</a></p>
+</li>
+<li><p>[]</p>
+</li>
+<li><p><a href="https://www.zhihu.com/question/19635359/answer/172074046" target="_blank" rel="noopener">知乎 17点的回答</a></p>
+</li>
+<li><p><a href="https://github.com/mqyqingfeng/Blog/issues/42" target="_blank" rel="noopener">JavaScript专题之函数柯里化</a></p>
+</li>
+<li><p><a href="https://github.com/xitu/gold-miner/blob/master/TODO/functors-categories.md" target="_blank" rel="noopener">掘金翻译：Functor 与 Category （软件编写）（第六部分）</a></p>
+</li>
+</ul>
+<p>其他等待理解的</p>
+<ul>
+<li>图灵机完备</li>
+<li>lamda 演算</li>
+<li>SICP</li>
+<li>Haskell</li>
+<li>Monald</li>
+</ul>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>

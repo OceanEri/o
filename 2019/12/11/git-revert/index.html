@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    如何去撤销一个已提交的 commit 节点 - O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            如何去撤销一个已提交的 commit 节点
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-11T09:51:37.000Z" itemprop="datePublished">12月 11 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 668 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="撤销某一个具体的节点"><a href="#撤销某一个具体的节点" class="headerlink" title="撤销某一个具体的节点"></a>撤销某一个具体的节点</h2><p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git revert a7d8dcaa4e25667c9aaaf2a0809aca7fe1a27b6d</span><br></pre></td></tr></table></figure></p>
+<p>但是当这个节点是一个 merge 节点的时候， 你根本无法去 revert 这个节点，因为你不知道 merge 的哪一条分支应该作为主线，哪个分支作为他撤销后的主分支，因此git 会输出错误信息:</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: commit cae5381823aad7c285d017e5cf7e8bc4b7b12240 is a merge but no -m option was given.</span><br></pre></td></tr></table></figure></p>
+<p>让我们来看看这个 m 参数代表什么</p>
+<blockquote>
+<p>Usually you cannot revert a merge because you do not know which side of the merge should be considered the mainline. This option specifies the parent number (starting from 1) of the mainline and allows revert to reverse the change relative to the specified parent.</p>
+</blockquote>
+<blockquote>
+<p>Reverting a merge commit declares that you will never want the tree changes brought in by the merge. As a result, later merges will only bring in tree changes introduced by commits that are not ancestors of the previously reverted merge. This may or may not be what you want</p>
+</blockquote>
+<p>翻译过来就是</p>
+<blockquote>
+<p>通常情况下，你无法 revert 一个 merge，因为你不知道 merge 的哪一条线应该被视为主线。这个选项（-m）指定了主线的 parent 的代号（从1开始），并允许以相对于指定的 parent 的进行 revert。</p>
+</blockquote>
+<blockquote>
+<p>revert 一个 merge commit 意味着你将完全不想要来自 merge commit 带来的 tree change。 因此，之后的 merge 只会引入那些不是之前被 revert 的那个 merge 的祖先引入的 tree change，这可能是也可能不是你想要的。</p>
+</blockquote>
+<p>如同下图所示，revert 到 ‘thumbup-feature’ 的时候不知道 到底是 revert 到绿色的线还是紫色的线。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191211184947.png" alt></p>
+<p>也可以使用 git show 命令查看相关信息 </p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git show</span><br><span class="line"></span><br><span class="line">输出内容：</span><br><span class="line"></span><br><span class="line">commit cae5381823aad7c285d017e5cf7e8bc4b7b12240</span><br><span class="line">Merge: edf99ca 125cfdd</span><br><span class="line">Date:   Thu Apr 12 18:27:21 2018 +0800</span><br><span class="line"></span><br><span class="line">    Merge tag &apos;thumbup-feature&apos;</span><br></pre></td></tr></table></figure><br>如下图标示的 parent1 对应</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191211185856.png" alt></p>
+<h2 id="执行-git-revert-cae5381-m-1"><a href="#执行-git-revert-cae5381-m-1" class="headerlink" title="执行 git revert cae5381 -m 1"></a>执行 git revert cae5381 -m 1</h2><p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git revert cae5381 -m 1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line"></span><br><span class="line">Revert &quot;Merge tag &apos;thumbup-feature&apos;&quot;</span><br><span class="line"></span><br><span class="line">This reverts commit cae5381823aad7c285d017e5cf7e8bc4b7b12240, reversing</span><br><span class="line">changes made to edf99ca31755a27b0a43b290263ed810833a95c4.</span><br><span class="line"></span><br><span class="line">[master f0aac26] Revert &quot;Merge tag &apos;thumbup-feature&apos;&quot;</span><br><span class="line"> 2 files changed, 2 deletions(-)</span><br><span class="line"> delete mode 100644 file3</span><br><span class="line"> delete mode 100644 file4</span><br></pre></td></tr></table></figure></p>
+<p>复制代码file3 和 file4 是 feature branch 上的 commit 引入的文件，被正确地删掉了</p>
+<h2 id="执行-git-revert-cae5381-m-2"><a href="#执行-git-revert-cae5381-m-2" class="headerlink" title="执行 git revert cae5381 -m 2"></a>执行 git revert cae5381 -m 2</h2><p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard d208cba </span><br><span class="line">git revert cae5381 -m 2</span><br><span class="line"></span><br><span class="line">输出</span><br><span class="line"></span><br><span class="line">[master 2c5a0ee] Revert &quot;Merge tag &apos;thumbup-feature&apos;&quot;</span><br><span class="line"> 2 files changed, 2 deletions(-)</span><br><span class="line"> delete mode 100644 file5  </span><br><span class="line"> delete mode 100644 file6</span><br></pre></td></tr></table></figure></p>
+<p>这种 revert 把 master 在 feature branch 期间进行的 commit 都给干掉了。</p>
+<p>本文绝大部分的内容和数据都引用自 ULIVZ 的文章:</p>
+<ul>
+<li><a href="https://juejin.im/post/5acf4db8f265da239148822d" target="_blank" rel="noopener">当你决定去 revert 一个merge commit</a></li>
+</ul>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/o/tags/git/">#git</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/o/2019/12/11/binary/">使用 JavaScript 进行二进制计算</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/o/2019/12/10/Functional/">如何理解函数式编程</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>

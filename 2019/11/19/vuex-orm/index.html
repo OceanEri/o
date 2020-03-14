@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    在前端项目中使用 vuex orm - O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            在前端项目中使用 vuex orm
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-11-19T16:36:02.000Z" itemprop="datePublished">11月 19 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2025 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="什么是-ORM"><a href="#什么是-ORM" class="headerlink" title="什么是 ORM"></a>什么是 ORM</h2><h3 id="网上抄的基本概念："><a href="#网上抄的基本概念：" class="headerlink" title="网上抄的基本概念："></a>网上抄的基本概念：</h3><p>ORM全称是：Object Relational Mapping(对象关系映射)，其主要作用是在编程中，把面向对象的概念跟数据库中表的概念对应起来。举例来说就是，我定义一个对象，那就对应着一张表，这个对象的实例，就对应着表中的一条记录。 </p>
+<h3 id="为什么我要使用-Vuex-ORM"><a href="#为什么我要使用-Vuex-ORM" class="headerlink" title="为什么我要使用 Vuex ORM"></a>为什么我要使用 Vuex ORM</h3><p>之前一直在做公司内部的运维平台</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191120004847.png" alt></p>
+<p>遇到了这几个问题：</p>
+<p>1、 接口返回数据过大（最差的一种情况一个接口返回了 10M 的 JSON，需要前端再对这个 JSON 数据进行二次加工渲染图形 这个问题后来使用 web worder 解决）</p>
+<p>2、 数据间的交流过多</p>
+<p>理想化交互逻辑：</p>
+<ol>
+<li>点击左侧树 -&gt; 获取到 集群、服务、机器</li>
+<li>选中机器 -&gt; 获取到 metrics 项</li>
+<li>选中metrics项 -&gt; 获取到对应指标的数据，通过 echarts 渲染</li>
+</ol>
+<p>导致的问题：</p>
+<ol>
+<li>每一个获取下一级的接口都需要传递各处不同的参数</li>
+<li>该如何设计 Store 结构 ？ 是应当按照直觉 UI = f(state) 还是 应该把数据拍平。</li>
+</ol>
+<p>其实按照这两种不同设计理念设计 Store 的话又会存在以下问题：</p>
+<ul>
+<li>Store 层级过深会不会对性能产生影响</li>
+<li>把 Store 拍平的话又该如何去跨域对象层级去获取相关数据</li>
+</ul>
+<p>最终还是硬着头皮做完了， 但樯橹灰飞烟灭还是留下了高昂的维护成本、for 循环漫天飞和无尽的心灵伤的伤害 😣。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191120010615.png" alt></p>
+<h3 id="为什么前端要使用-Vuex-ORM"><a href="#为什么前端要使用-Vuex-ORM" class="headerlink" title="为什么前端要使用 Vuex ORM"></a>为什么前端要使用 Vuex ORM</h3><p>在了解了我司几个开发运营后台的同事开发的业务之后其实发现很多业务并不需要状态管理工具。“PS:此刻想起 Dan Abramov 那句名言 “如果你不知道你是否需要 Redux， 那么你一定不需要 Redux“。”<br>而在需要使用状态管理工具的业务中又缺乏一定设计准则 <a href="https://www.zhihu.com/question/57402317/answer/152861036" target="_blank" rel="noopener">详见知乎讨论：前端开发应更多地使用多层嵌套对象的结构，还是拍平数组进行引用的结构。</a></p>
+<p>这个时候，Vuex ORM 提供一种工业标准可以大大提升代码的可维护性和开发效率，我认为也就是在业务层面上进行领域模型抽象。</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><p>Vuex Orm 一方面让项目中的 Vuex 使用更加优雅（你不用再去写 this.$store.Home.xxx.xxx 这种链式调用代码）。另一方面前端对接口的承受能力会变得更高，比如说后端没有因为某些原因不能按照我们的想法来提供接口时，除了在 BFF 层做处理外我们可以直接在浏览器中建立数据模型提升开发效率。最后 Vuex Orm 中的数据模型提供了类型判断的能力（就像 TS 一样）降低代码出错率。</p>
+<h2 id="定义数据类型"><a href="#定义数据类型" class="headerlink" title="定义数据类型"></a>定义数据类型</h2><p>模型字段的基本类型</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this.attr(“”)</td>
+<td>任意值</td>
+</tr>
+<tr>
+<td>this.string(“”)</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>this.number(“”)</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>this.boolean(“”)</td>
+<td>布尔值</td>
+</tr>
+</tbody></table>
+<p>特殊类型</p>
+<p>|  Type   | 含义  |<br>| nullable  | 空值 |<br>| this.increment()  | 自增 |</p>
+<p>关系类型</p>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><h3 id="模型间的关系"><a href="#模型间的关系" class="headerlink" title="模型间的关系"></a>模型间的关系</h3><p>Vuex-Orm 定义了几种关系用来描述数据模型之间的关系</p>
+<table>
+<thead>
+<tr>
+<th>关系</th>
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One to One</td>
+<td>this.hasOne(Profile, ‘user_id’)</td>
+<td>一个数据对象拥有一个数据对象</td>
+</tr>
+<tr>
+<td>One to One Inverse</td>
+<td>this.belongTo(User, ‘user_id’)</td>
+<td>一个数据模型中包含另一个数据对象</td>
+</tr>
+<tr>
+<td>One to One Inverse</td>
+<td>this.belongTo(User, ‘user_id’)</td>
+<td>一个数据模型归属于一个数据对象</td>
+</tr>
+<tr>
+<td>One to Many</td>
+<td>this.belongTo(User, ‘user_id’)</td>
+<td>一个数据对象属多种另一个类型的数据对象（归属方）</td>
+</tr>
+<tr>
+<td>Has Many By</td>
+<td>this.hasManyBy(Node, ‘user_ids’)</td>
+<td>一个数据对象属多种另一个类型的数据对象（被归属方）</td>
+</tr>
+<tr>
+<td>Many To  Many</td>
+<td>roles: this.belongsToMany(Role, RoleUser, ‘user_id’, ‘role_id’)</td>
+<td>角色和用户之间的关系：一个角色拥有多个用户，一个用户同样会拥有多种角色</td>
+</tr>
+<tr>
+<td>Has Many Through</td>
+<td>posts: this.hasManyThrough(Post, User, ‘country_id’, ‘user_id’)</td>
+<td>一个村落拥有许多邮政局作为桥梁来互相沟通</td>
+</tr>
+<tr>
+<td>One To One (Polymorphic)</td>
+<td>image: this.morphOne(Image, ‘imageable_id’, ‘imageable_type’)</td>
+<td>见下文解释</td>
+</tr>
+<tr>
+<td>One To Many (Polymorphic)</td>
+<td></td>
+<td>见下文解释</td>
+</tr>
+<tr>
+<td>Many To Many (Polymorphic)</td>
+<td></td>
+<td>见下文解释</td>
+</tr>
+</tbody></table>
+<p>hasManyThrough 例子<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">this.hasManyThrough(</span><br><span class="line">  Post,               // Final model we wish to access.</span><br><span class="line">  User,               // Intermediate model.</span><br><span class="line">  &apos;country_id&apos;,       // Foreign key on User model.</span><br><span class="line">  &apos;user_id&apos;,          // Foreign key on Post model.</span><br><span class="line">  &apos;local_country_id&apos;, // Local key on Country model.</span><br><span class="line">  &apos;local_user_id&apos;     // Local key on User model.</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>morphOne 一张图片可以属于一个用户，也可以属于一个评论。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class User extends Model &#123;</span><br><span class="line">  static entity = &apos;users&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      name: this.string(&apos;&apos;),</span><br><span class="line">      image: this.morphOne(Image, &apos;imageable_id&apos;, &apos;imageable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Post extends Model &#123;</span><br><span class="line">  static entity = &apos;posts&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      title: this.string(&apos;&apos;),</span><br><span class="line">      image: this.morphOne(Image, &apos;imageable_id&apos;, &apos;imageable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Image extends Model &#123;</span><br><span class="line">  static entity = &apos;images&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      url: this.attr(&apos;&apos;),</span><br><span class="line">      imageable_id: this.attr(null),</span><br><span class="line">      imageable_type: this.attr(null)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>One To Many (Polymorphic)<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class Post extends Model &#123;</span><br><span class="line">  static entity = &apos;posts&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      post_title: this.string(&apos;&apos;),</span><br><span class="line">      comments: this.morphMany(Comment, &apos;commentable_id&apos;, &apos;commentable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Video extends Model &#123;</span><br><span class="line">  static entity = &apos;videos&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      video_link: this.string(&apos;&apos;),</span><br><span class="line">      comments: this.morphMany(Comment, &apos;commentable_id&apos;, &apos;commentable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Comment extends Model &#123;</span><br><span class="line">  static entity = &apos;comments&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      body: this.attr(&apos;&apos;),</span><br><span class="line">      commentable_id: this.attr(null),</span><br><span class="line">      commentable_type: this.attr(null)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Many To Many (Polymorphic)<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Post extends Model &#123;</span><br><span class="line">  static entity = &apos;posts&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      tags: this.morphToMany(Tag, Taggable, &apos;tag_id&apos;, &apos;taggable_id&apos;, &apos;taggable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Video extends Model &#123;</span><br><span class="line">  static entity = &apos;videos&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      tags: this.morphToMany(Tag, Taggable, &apos;tag_id&apos;, &apos;taggable_id&apos;, &apos;taggable_type&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Tag extends Model &#123;</span><br><span class="line">  static entity = &apos;tags&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      name: this.attr(&apos;&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Taggable extends Model &#123;</span><br><span class="line">  static entity = &apos;taggables&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      tag_id: this.attr(null),</span><br><span class="line">      taggable_id: this.attr(null),</span><br><span class="line">      taggable_type: this.attr(null)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>this.morphedByMany()<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Tag extends Model &#123;</span><br><span class="line">  static entity = &apos;tags&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      name: this.attr(&apos;&apos;),</span><br><span class="line">      posts: this.morphedByMany(</span><br><span class="line">        Post, Taggable, &apos;tag_id&apos;, &apos;taggable_id&apos;, &apos;taggable_type&apos;</span><br><span class="line">      ),</span><br><span class="line">      videos: this.morphedByMany(</span><br><span class="line">        Video, Taggable, &apos;tag_id&apos;, &apos;taggable_id&apos;, &apos;taggable_type&apos;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>在没有引入Vuex Orm 之前， 我们往往是通过操作 mutations 来对一个对象进行增、删、改、查，数据关系简单操作起来还行，但是一旦数据结构稍微复杂一些写起来就有些繁琐痛苦来<br>。Vuex Orm 会对 Store 中的数据进行持久化，通过已经定义好的数据模型使得 CURD 更加遍历写法更加优雅。</p>
+<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>视图<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import User from &apos;@/models/User&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  created () &#123;</span><br><span class="line">    User.insert(&#123;</span><br><span class="line">      data: [</span><br><span class="line">        &#123; id: 1, name: &apos;John&apos; &#125;,</span><br><span class="line">        &#123; id: 2, name: &apos;Jane&apos; &#125;,</span><br><span class="line">        &#123; id: 3, name: &apos;Johnny&apos; &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Vuex Store 经过更新后</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        1: &#123; id: 1, name: &apos;John&apos; &#125;,</span><br><span class="line">        2: &#123; id: 2, name: &apos;Jane&apos; &#125;,</span><br><span class="line">        3: &#123; id: 3, name: &apos;Johnny&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>create 方法和 insert 效果一致，他们的区别是 create 会清空之前的数据是一个全量更新</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// Let&apos;s say this is the initial State.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        1: &#123; id: 1, name: &apos;John&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// `insert` is going to insert a new record, and keep existing data.</span><br><span class="line">User.insert(&#123;</span><br><span class="line">  data: &#123; id: 2, name: &apos;Jane&apos; &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// State after `insert`.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        1: &#123; id: 1, name: &apos;John&apos; &#125;,</span><br><span class="line">        2: &#123; id: 2, name: &apos;Jane&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// `create` is going to replace all existing data with new data.</span><br><span class="line">User.create(&#123;</span><br><span class="line">  data: &#123; id: 3, name: &apos;Johnny&apos; &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// State after `create`.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        3: &#123; id: 3, name: &apos;Johnny&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="插入数据模型"><a href="#插入数据模型" class="headerlink" title="插入数据模型"></a>插入数据模型</h3><p>数据模型<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class User extends Model &#123;</span><br><span class="line">  static entity = &apos;users&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      name: this.attr(&apos;&apos;),</span><br><span class="line">      posts: this.hasMany(Post, &apos;user_id&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Post extends Model &#123;</span><br><span class="line">  static entity = &apos;posts&apos;</span><br><span class="line"></span><br><span class="line">  static fields () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      id: this.attr(null),</span><br><span class="line">      user_id: this.attr(null),</span><br><span class="line">      title: this.attr(&apos;&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>插入数据模型<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// Create User data with its related Post data.</span><br><span class="line">User.insert(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    id: 1,</span><br><span class="line">    name: &apos;John Doe &apos;,</span><br><span class="line">    posts: [</span><br><span class="line">      &#123; id: 1, user_id: 1, title: &apos;Post title 1&apos; &#125;,</span><br><span class="line">      &#123; id: 2, user_id: 1, title: &apos;Post title 2&apos; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// State after `insert`.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    posts: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        1: &#123; id: 1, user_id: 1, title: &apos;Post title 1&apos; &#125;</span><br><span class="line">        2: &#123; id: 2, user_id: 1, title: &apos;Post title 2&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    users: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        1: &#123; id: 1, name: &apos;John Doe&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><p>根据 primary key 来更新<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;label&gt;Name&lt;/label&gt;</span><br><span class="line">    &lt;input :value=&quot;user.name&quot; @input=&quot;updateName&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import User from &apos;@/models/User&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    user () &#123;</span><br><span class="line">      return User.find(1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  methods: &#123;</span><br><span class="line">    updateName (e) &#123;</span><br><span class="line">      User.update(&#123;</span><br><span class="line">        where: 1,</span><br><span class="line">        data: &#123;</span><br><span class="line">          name: e.target.value</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>根据条件来筛<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// Initial State.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      1: &#123; id: 1, name: &apos;John&apos;, age: 20, active: false &#125;,</span><br><span class="line">      2: &#123; id: 2, name: &apos;Jane&apos;, age: 20, active: false &#125;,</span><br><span class="line">      3: &#123; id: 3, name: &apos;Johnny&apos;, age: 30, active: false &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Update via function.</span><br><span class="line">User.update(&#123;</span><br><span class="line">  where: (user) =&gt; &#123;</span><br><span class="line">    return user.age === 20</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  data: &#123; active: true &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// State after `update`.</span><br><span class="line">&#123;</span><br><span class="line">  entities: &#123;</span><br><span class="line">    users: &#123;</span><br><span class="line">      1: &#123; id: 1, name: &apos;John&apos;, age: 20, active: true &#125;,</span><br><span class="line">      2: &#123; id: 2, name: &apos;Jane&apos;, age: 20, active: true &#125;,</span><br><span class="line">      3: &#123; id: 3, name: &apos;Johnny&apos;, age: 30, active: false &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/o/2019/11/21/source/">源码阅读计划</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/o/2019/11/19/Node/">Node 中的一些核心 API</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>

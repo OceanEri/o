@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    标签: 项目管理 - O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#项目管理</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/11/27/fe-leader/" itemprop="url">假如我来负责一家公司的前端体系</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-11-27T10:07:17.000Z" itemprop="datePublished">11月 27 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 读完 (约 429 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200116195001.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191127184203.png" alt="how to build a building a building"></p>
+<p>很长一段时间都在和 SRE、Infra 合作主要做的是一些比较基础的服务。 这篇文章主要记录工作中做过的和自己见过的重要的东西，想象如果自己有一天到了一家没有技术的公司自己都得做什么。</p>
+<h2 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h2><p>在一个公司的前端开发中，理想情况是不同项目应当都使用公司提供的脚手架，并且由 infra 做统一维护。<br>但是做过开发的人都知道，做开发时不会每个组件都自己写，我们通常会引用一些外部文件（JavaScript -&gt; node_modules, Java -&gt; Maven）。<br>这个时候我们希望能把公司开发者使用的组件、包都放在自己的服务器上，因为主要有以下几点好处：</p>
+<ol>
+<li><p>节省自己的外网带宽</p>
+</li>
+<li><p>加速Maven、npm的构建，提升构建速度。</p>
+</li>
+<li><p>部署自己的第三方组件（公司的公共 node、 开发框架）</p>
+</li>
+</ol>
+<p>node_modules 依赖</p>
+<p>使用工具：</p>
+<p><a href="https://help.sonatype.com/repomanager3" target="_blank" rel="noopener">Nexus Repository Manager OSS 3.x</a></p>
+<h2 id="构建平台"><a href="#构建平台" class="headerlink" title="构建平台"></a>构建平台</h2><p>计划：主要包含 CI CD, 关于 jenkins 进行自动化共建的内容</p>
+<h2 id="通用脚手架"><a href="#通用脚手架" class="headerlink" title="通用脚手架"></a>通用脚手架</h2><p>计划：</p>
+<ul>
+<li>web pc</li>
+<li>H5</li>
+<li>小程序</li>
+<li>快应用</li>
+<li>chrome extension</li>
+</ul>
+<h2 id="通用-CLI-工具"><a href="#通用-CLI-工具" class="headerlink" title="通用 CLI 工具"></a>通用 CLI 工具</h2><ul>
+<li>作为通用脚手架的承载</li>
+</ul>
+<h2 id="文档体系"><a href="#文档体系" class="headerlink" title="文档体系"></a>文档体系</h2><p>主要用于知识分享</p>
+<ul>
+<li>docsify</li>
+<li>vuepress</li>
+</ul>
+<h2 id="日志收集"><a href="#日志收集" class="headerlink" title="日志收集"></a>日志收集</h2><p>对线上页面进行日志收集以便快速定位问题</p>
+<h2 id="性能监控"><a href="#性能监控" class="headerlink" title="性能监控"></a>性能监控</h2><p>对线上问题进行性能监控</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>

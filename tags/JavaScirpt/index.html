@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    标签: JavaScirpt - O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#JavaScirpt</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/12/06/promise/" itemprop="url">Promise 碎片 （等待整理）</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-06T06:43:38.000Z" itemprop="datePublished">12月 6 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1320 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <blockquote>
+<p>我所做的一切，不过是在取悦一个影子</p>
+</blockquote>
+<h3 id="什么是-Promise"><a href="#什么是-Promise" class="headerlink" title="什么是 Promise ?"></a>什么是 Promise ?</h3><ol>
+<li>定义：Promise 是一个对象，他会在未来的某个时刻生成一个值，已完成 （resolved）的值或者一个没有完成的理由。</li>
+<li>特性：Promise 存在三个状态  FULLFILLED （已完成）、REJECTED （已拒绝）、PENDING （等待中）</li>
+<li>回调：Promise 的使用者可以附上回调函数来处理已完成的值或者拒绝的原因</li>
+</ol>
+<p>Promise 是热切的，一旦 promise 的构造函数被调用，它就会开始执行你交给它的任务。如果你需要一个懒惰的，请看 <a href="https://github.com/Reactive-Extensions/RxJS" target="_blank" rel="noopener">observables</a> 或者 <a href="https://github.com/rpominov/fun-task" target="_blank" rel="noopener">task</a>。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/WeChat6f9e35474509f44dc8831b91563615d0.png" alt></p>
+<h3 id="Promise-用法"><a href="#Promise-用法" class="headerlink" title="Promise 用法"></a>Promise 用法</h3><p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// Your code</span></span><br><span class="line">  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>) &#123;</span><br><span class="line">    resolve(value)</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    reject(value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// success</span></span><br><span class="line">&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// error</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191206182531.png" alt="Promise Polifil"></p>
+<h3 id="Promise-API"><a href="#Promise-API" class="headerlink" title="Promise API"></a>Promise API</h3><p>Promise 规范有很多，Promise A、 Promise B、 Promise A+、Promise D</p>
+<p>目前 ES6 的 Promise 是基于 Promise A+ 实现的</p>
+<p>我们知道 Promise 是一个构造函数，需要用 new 调用，并有以下几个 api：( 从哪里知道？ 怎么知道？)</p>
+<p>API: </p>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Promise</span>(<span class="hljs-params">resolver</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">Promise</span>.prototype.then = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">onResolved</span>) </span>&#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Promise</span>.prototype.catch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">onRejected</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">Promise</span>.resolve = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Promise</span>.reject = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Promise</span>.race = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Promise</span>.all = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同步任务（存放在执行栈）</p>
+<p>异步任务 （存放在异步队列） 异步任务又分为宏任务和微任务</p>
+<p>Chrome: </p>
+<blockquote>
+<p>宏任务 Task: setTimeout setInterval setImmediate(IE专用) messageChannel</p>
+</blockquote>
+<p>等待执行栈和微任务队列都执行完毕才会执行，并且在执行完每一个宏任务之后，会去看看微任务队列有没有新添加的任务，如果有，会先将微任务队列中的任务清空，才会继续执行下一个宏任务</p>
+<blockquote>
+<p>微任务 microTask：promise MutationObserver…</p>
+</blockquote>
+<p>当执行栈中的代码执行完毕，会在执行宏任务队列之前先看看微任务队列中有没有任务，如果有会先将微任务队列中的任务清空才会去执行宏任务队列</p>
+<p>Node: </p>
+<blockquote>
+<p>宏任务 Task: setTimeout setInterval…</p>
+</blockquote>
+<blockquote>
+<p>微任务 microTask: process.nextTric promise setImmediate</p>
+</blockquote>
+<p><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> isFulfilled = <span class="hljs-literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    resolve(<span class="hljs-number">2</span>);</span><br><span class="line"></span><br><span class="line">    isFulfilled = <span class="hljs-literal">true</span>;</span><br><span class="line"></span><br><span class="line">  &#125;, <span class="hljs-number">50</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">d.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onFulfilled</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(isFulfilled == <span class="hljs-literal">true</span>)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Promise 的零碎实现： </p>
+<p><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> PENDING = <span class="hljs-string">"PENDING"</span></span><br><span class="line"><span class="hljs-keyword">const</span> RESOLVED = <span class="hljs-string">"RESOLVED"</span></span><br><span class="line"><span class="hljs-keyword">const</span> REJECTED = <span class="hljs-string">"REJECTED"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 值穿透</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 构造函数</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPromise</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">constructor</span>(exexutor) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">this</span>.status = PENDING</span><br><span class="line">    <span class="hljs-keyword">this</span>.value = <span class="hljs-literal">undefined</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 回调函数</span></span><br><span class="line">    <span class="hljs-keyword">this</span>.onResolvedCallback = []</span><br><span class="line">    <span class="hljs-keyword">this</span>.onRejectedCallback = []</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// inner resolve</span></span><br><span class="line">    <span class="hljs-keyword">let</span> _resolved = <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">       * 这里增加 setTimeout 是为了避免这种情况的出现</span></span><br><span class="line"><span class="hljs-comment">       *  promise2 = new MyPromise(function(resolve, reject) &#123;</span></span><br><span class="line"><span class="hljs-comment">       *    promise2().then(() =&gt; &#123;</span></span><br><span class="line"><span class="hljs-comment">       *      console.log(1111)</span></span><br><span class="line"><span class="hljs-comment">       *    &#125;)</span></span><br><span class="line"><span class="hljs-comment">       *  &#125;)</span></span><br><span class="line"><span class="hljs-comment">       * </span></span><br><span class="line"><span class="hljs-comment">       */</span></span><br><span class="line">      setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === PENDING) &#123;</span><br><span class="line">          <span class="hljs-keyword">this</span>.status = RESOLVED</span><br><span class="line">          <span class="hljs-keyword">this</span>.value = value</span><br><span class="line">          <span class="hljs-comment">// 针对非链式调用</span></span><br><span class="line">          <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">           * P = new Promise()</span></span><br><span class="line"><span class="hljs-comment">           * </span></span><br><span class="line"><span class="hljs-comment">           * P.then()</span></span><br><span class="line"><span class="hljs-comment">           * </span></span><br><span class="line"><span class="hljs-comment">           * P.then()</span></span><br><span class="line"><span class="hljs-comment">           */</span></span><br><span class="line">          <span class="hljs-keyword">this</span>.onResolvedCallback.forEach(<span class="hljs-function"><span class="hljs-params">cb</span> =&gt;</span> cb(value))</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// inner reject</span></span><br><span class="line">    <span class="hljs-keyword">let</span> _rejected = <span class="hljs-function">(<span class="hljs-params">reason</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === PENDING) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.status = REJECTED</span><br><span class="line">        <span class="hljs-keyword">this</span>.value = reason</span><br><span class="line">          <span class="hljs-comment">// 针对非链式调用</span></span><br><span class="line">        <span class="hljs-keyword">this</span>.onRejectedCallback.forEach(<span class="hljs-function"><span class="hljs-params">cb</span> =&gt;</span> cb(reason))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">      exexutor(_resolved, _rejected)</span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> (err) &#123;</span><br><span class="line">      _rejected(err)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 原型链表</span></span><br><span class="line">  then(onResolved, onRejected) &#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> promise2</span><br><span class="line">    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 根据标准规定, 如果 then 的参数不是一个函数那么, 就抛出</span></span><br><span class="line">    onResolved = <span class="hljs-keyword">typeof</span> onResolved === <span class="hljs-string">'function'</span> ? onResolved : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123; <span class="hljs-keyword">return</span> value &#125;</span><br><span class="line">    onRejected = <span class="hljs-keyword">typeof</span> onRejected === <span class="hljs-string">'function'</span> ? onRejected : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">reason</span>) </span>&#123; <span class="hljs-keyword">return</span> reason &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === PENDING) &#123;</span><br><span class="line">      <span class="hljs-comment">// 如果当前的Promise还处于pending状态，我们并不能确定调用onResolved还是onRejected，</span></span><br><span class="line">      <span class="hljs-comment">// 只能等到Promise的状态确定后，才能确实如何处理。</span></span><br><span class="line">      <span class="hljs-comment">// 所以我们需要把我们的**两种情况**的处理逻辑做为callback放入promise1(此处即this/self)的回调数组里</span></span><br><span class="line">      <span class="hljs-comment">// 逻辑本身跟第一个if块内的几乎一致，此处不做过多解释</span></span><br><span class="line">      <span class="hljs-keyword">return</span> promise2 = <span class="hljs-keyword">new</span> MyPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        self.onResolvedCallback.push(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">          <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> x = onResolved(self.value)</span><br><span class="line">            <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> MyPromise) &#123;</span><br><span class="line">              x.then(resolve, reject)</span><br><span class="line">            &#125;</span><br><span class="line">            resolve(x)</span><br><span class="line">          &#125; <span class="hljs-keyword">catch</span> (e) &#123;</span><br><span class="line">            reject(e)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        self.onRejectedCallback.push(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">reason</span>) </span>&#123;</span><br><span class="line">          <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> x = onRejected(self.value)</span><br><span class="line">            <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Promise</span>) &#123;</span><br><span class="line">              x.then(resolve, reject)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="hljs-keyword">catch</span> (e) &#123;</span><br><span class="line">            reject(e)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === RESOLVED) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> promise2 = <span class="hljs-keyword">new</span> MyPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, rejected</span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">          x = onResolved(self.value)</span><br><span class="line">          <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> MyPromise) &#123; <span class="hljs-comment">// 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果</span></span><br><span class="line">            x.then(resolve, rejected)</span><br><span class="line">          &#125;</span><br><span class="line">          resolve(x) <span class="hljs-comment">// 否则，以它的返回值做为promise2的结果</span></span><br><span class="line">        &#125; <span class="hljs-keyword">catch</span> (err) &#123;</span><br><span class="line">          rejected(err)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === REJECTED) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> promise2 = <span class="hljs-keyword">new</span> MyPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, rejected</span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">          x = onRejected(self.value)</span><br><span class="line">          <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> MyPromise) &#123; <span class="hljs-comment">// 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果</span></span><br><span class="line">            x.then(resolve, rejected)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="hljs-keyword">catch</span> (err) &#123;</span><br><span class="line">          rejected(err)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// then 方法</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> isFulfilled = <span class="hljs-literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> MyPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    resolve(<span class="hljs-number">2</span>);</span><br><span class="line"></span><br><span class="line">    isFulfilled = <span class="hljs-literal">true</span>;</span><br><span class="line"></span><br><span class="line">  &#125;, <span class="hljs-number">50</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">d.then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onFulfilled</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-built_in">console</span>.log(isFulfilled == <span class="hljs-literal">true</span>)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 测试</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> promise = <span class="hljs-keyword">new</span> MyPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, rejected</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'pending'</span>)</span><br><span class="line">    resolve()</span><br><span class="line">  &#125;, <span class="hljs-number">1000</span>);</span><br><span class="line">&#125;).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> promise2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, rejected</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'pending'</span>)</span><br><span class="line">    resolve()</span><br><span class="line">  &#125;, <span class="hljs-number">1000</span>);</span><br><span class="line">&#125;).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>参考</p>
+<ul>
+<li><a href="https://juejin.im/post/5d59757f6fb9a06ae76405c6" target="_blank" rel="noopener">从零一步一步实现一个完整版的Promise</a></li>
+<li><a href="https://juejin.im/post/5aa7868b6fb9a028dd4de672" target="_blank" rel="noopener">https://juejin.im/post/5aa7868b6fb9a028dd4de672</a></li>
+</ul>
+<ul>
+<li><a href="https://malcolmyu.github.io/2015/06/12/Promises-A-Plus/" target="_blank" rel="noopener">Promise A+ 规范</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21834559" target="_blank" rel="noopener">史上最易读懂的 Promise/A+ 完全实现</a></li>
+<li><a href="https://github.com/xieranmaya/blog/issues/3" target="_blank" rel="noopener">剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类</a></li>
+</ul>
+<p>后续</p>
+<ul>
+<li><a href="https://github.com/xieranmaya/blog/issues/5" target="_blank" rel="noopener">从如何停掉 promise 链说起</a></li>
+</ul>
+<p>拓展</p>
+<ul>
+<li><a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">国内绝大部分 Task MicroTask 的来源</a></li>
+<li><a href="https://github.com/folktale/data.task/blob/master/lib/task.js" target="_blank" rel="noopener">评论区：Monad的Data.task 实现Promise </a></li>
+</ul>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>

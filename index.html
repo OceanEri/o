@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<title>
+    O
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+        
+            <meta name="description" content="">
+            
+
+                
+
+                        
+
+                                    
+
+                                            
+
+                                                    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+                                                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+                                                    
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+                                                        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+                                                        
+
+                                                            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+                                                            <link rel="stylesheet" href="/o/css/style.css">
+
+                                                                <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+                                                                            
+                                                                        
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152053462-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-152053462-1');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+                                                                            
+                                                                                
+</head>
+<body>
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/o/">
+                
+                <img src="/o/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/o/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/o/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/20/click-jacking/" itemprop="url">click-jacking</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-20T09:57:27.000Z" itemprop="datePublished">1月 20 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 150 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200120182608.png" alt></p>
+<h2 id="什么是-Click-Jacking"><a href="#什么是-Click-Jacking" class="headerlink" title="什么是 Click Jacking"></a>什么是 Click Jacking</h2><p>本质上是 UI 覆盖攻击的一种，</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. Flash 点击劫持</span><br><span class="line">2. 图片覆盖攻击(XSIO)</span><br><span class="line">3. 拖拽劫持，主要用于数据窃取</span><br><span class="line">4. 触屏劫持(TapJacking)</span><br></pre></td></tr></table></figure></p>
+<h2 id="手段"><a href="#手段" class="headerlink" title="手段"></a>手段</h2><ol>
+<li><p>iframe 覆盖，覆盖层 opacity 调为0</p>
+</li>
+<li><p>图片覆盖</p>
+</li>
+</ol>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>使用一个 Http Header X-Frame-Options。</p>
+<p>它有三个可选值。</p>
+<p>DENY：浏览器会拒绝当前页面加载任何frame页面；</p>
+<p>SAMEORIGIN：frame页面的地址只能为同源域名下的页面；</p>
+<p>ALLOW-FROM origin：允许frame加载的页面地址</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/14/plan/" itemprop="url">计划表</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-14T08:54:53.000Z" itemprop="datePublished">1月 14 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 128 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="组件文档的选型"><a href="#组件文档的选型" class="headerlink" title="组件文档的选型"></a>组件文档的选型</h2><ul>
+<li><a href>markdown-it 将 vue 组件插入到文档中</a></li>
+<li><a href>story book 实时交互式</a></li>
+</ul>
+<h2 id="关于-sha"><a href="#关于-sha" class="headerlink" title="关于 sha"></a>关于 sha</h2><ul>
+<li><p><a href="https://gitbook.tw/chapters/using-git/how-to-calculate-the-sha1-value.html" target="_blank" rel="noopener">那個長得很像亂碼 SHA-1 是怎麼算出來的？</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/37165658" target="_blank" rel="noopener">哈希算法与MD5、SHA</a></p>
+</li>
+</ul>
+<h2 id="virtual-dom"><a href="#virtual-dom" class="headerlink" title="virtual dom"></a>virtual dom</h2><ul>
+<li><p><a href="https://gitbook.tw/chapters/using-git/how-to-calculate-the-sha1-value.html" target="_blank" rel="noopener">那個長得很像亂碼 SHA-1 是怎麼算出來的？</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/37165658" target="_blank" rel="noopener">哈希算法与MD5、SHA</a></p>
+</li>
+</ul>
+<h2 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h2><p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191219174255.png" alt></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/10/vue-component/" itemprop="url">Vue 组件的本质是什么</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-10T03:30:22.000Z" itemprop="datePublished">1月 10 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 633 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>在传统页面开发中，我们使用 模板引擎 进行页面开发，</p>
+<p>类似 lodash.template</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; template &#125; from &apos;lodash&apos;</span><br><span class="line"></span><br><span class="line">const compiler = template(&apos;&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;&apos;)</span><br><span class="line">const html = compiler(&#123; title: &apos;My Component&apos; &#125;)</span><br><span class="line"></span><br><span class="line">document.getElementById(&apos;app&apos;).innerHTML = html</span><br></pre></td></tr></table></figure></p>
+<p><strong>模板引擎的概念是： 数据 + 模板 =&gt; HTML</strong></p>
+<p>我们可以看到 compiler ，接受的参数是 html 字符串，渲染出页面，似乎一个函数就是一个组件。</p>
+<p>实际上在使用 Vue 或 React 开发时，他们的输出并不是 html 字符串，而是 <strong>Virtual Dom</strong></p>
+<p><strong>数据 + 模板 =&gt; Virtual Dom</strong></p>
+<p>以 Vue 为例，一个组件的核心其实是 render 函数，其他内容，像 data、computed、props 都是为 render 函数提供服务的。<br>render 函数本可以直接生成 html 但却产出了 virtual dom， 借助 snabbdom 的 API 我们可以表达出这个公式。</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; h &#125; from snabbdom</span><br><span class="line"></span><br><span class="line">// h 函数用来创建 VNode，组件的产出是 VNode</span><br><span class="line">const MyComponent = props =&gt; &#123;</span><br><span class="line">  return h(&apos;h1&apos;, props.title)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>传统的开发中， 通过将模板引擎直接替换为 html，<br>可是 virtual dom 毕竟无法直接渲染到浏览器中，把 virtual dom 渲染为 dom 的过程叫做 <strong>patch</strong>。</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123; h, init &#125; from &apos;snabbdom&apos;</span><br><span class="line">// init 方法用来创建 patch 函数</span><br><span class="line">const patch = init([])</span><br><span class="line"></span><br><span class="line">const MyComponent = props =&gt; &#123;</span><br><span class="line">  return h(&apos;h1&apos;, props.title)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 组件的产出是 VNode</span><br><span class="line">const prevVnode = MyComponent(&#123; title: &apos;prev&apos; &#125;)</span><br><span class="line">// 将 VNode 渲染成真实 DOM</span><br><span class="line">patch(document.getElementById(&apos;app&apos;), prevVnode)</span><br></pre></td></tr></table></figure></p>
+<p>数据变更时，组件会产生新的 VNode， 只需要再次调用 patch</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 数据变更，产出新的 VNode</span><br><span class="line">const nextVnode = MyComponent(&#123; title: &apos;next&apos; &#125;)</span><br><span class="line">// 通过对比新旧 VNode，高效地渲染真实 DOM</span><br><span class="line">patch(prevVnode, nextVnode)</span><br></pre></td></tr></table></figure></p>
+<p>另外说几点题外话： 为什么需要使用 virtual dom </p>
+<h3 id="为什么要通过-virtual-dom"><a href="#为什么要通过-virtual-dom" class="headerlink" title="为什么要通过 virtual dom"></a>为什么要通过 virtual dom</h3><p>曾经一度以为使用 virtual dom 的原因是因为操作 virtual dom 比操作 DOM 的速度快。但其实这是一种错误的认识。</p>
+<p>看到 <a href="https://www.zhihu.com/question/31809713/answer/53544875" target="_blank" rel="noopener">尤雨溪:网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么</a> 这个答案的回答可以总结为这几点：</p>
+<ul>
+<li>在比较性能的时候，要分清楚初始渲染、小量数据更新、大量数据更新这些不同的场合。</li>
+<li>可以渲染到 DOM 以外的 backend，比如 ReactNative。</li>
+<li>为函数式的 UI 编程方式打开了大门</li>
+</ul>
+<p>本文参考：<br><a href="http://hcysun.me/vue-design/zh/essence-of-comp.html#%E7%BB%84%E4%BB%B6%E7%9A%84-vnode-%E5%A6%82%E4%BD%95%E8%A1%A8%E7%A4%BA" target="_blank" rel="noopener">hcysun 组件的本质是什么</a></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/08/shallow-compare/" itemprop="url">什么是浅比较</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-08T03:40:07.000Z" itemprop="datePublished">1月 8 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 119 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>最近在看一个组件的时候看到了 React.pureComponent,官方文档中对他的描述是</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于PureComponent的shouldeComponentUpdate里，实际是对props/state进行了一个浅对比，所以对于嵌套的对象不适用，没办法比较出来。</span><br></pre></td></tr></table></figure></p>
+<h2 id="shallowCopy"><a href="#shallowCopy" class="headerlink" title="shallowCopy"></a>shallowCopy</h2><p>在 React 中，shouldComponentUpdate的实现方式为</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (this._compositeType === CompositeTypes.PureClass) &#123;</span><br><span class="line">  shouldUpdate = !shallowEqual(prevProps, nextProps) || ! shallowEqual(inst.state, nextState);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>可以看到 PureComponent 就是对 props 和 state 的前后状态做的一个浅比较。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/04/running/" itemprop="url">埃鲁德·基普乔格：成为传奇</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-04T15:54:46.000Z" itemprop="datePublished">1月 4 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            38 分钟 读完 (约 5766 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <blockquote>
+<p>天赋异禀者通常有机会得到冠军，同时兼具天赋、自律又懂得思考的人则最终会成为传奇。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105150944.png" alt></p>
+<ol>
+<li></li>
+</ol>
+<p>2012年开夏，肯尼亚国家队的奥运选拨赛，埃鲁德·基普乔格5000米和万米都位列第7。连续第三次参加奥运的愿望落空了。</p>
+<p>那年他27岁。</p>
+<p>彻底无缘伦敦后，基普乔格很快做了个决定，转项更长距离的路跑。也就是马拉松。</p>
+<p>职业运动员的27岁，一小撮人准备好了大张旗鼓的收获，绝大多数人却要逐渐开始面对压力和焦虑的双重危机。这个年纪，潜力渐行渐远，兑现不出亮眼的成绩，留给职业生涯下半场的时间越来越少。</p>
+<p>截止那时，基普乔格最能拿出手的荣誉：</p>
+<p>03年世锦赛冠军；</p>
+<p>04年雅典奥运铜牌；</p>
+<p>08年北京奥运会银牌；</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151043.png" alt></p>
+<p>他主项5000米，兼跑越野和10000米。放眼东非，特别肯尼亚和埃塞俄比亚，长跑就是“国粹级”运动，如同乒乓球之于中国一样。非长跑强国的职业运动员，丢到肯尼亚未必能稳赢当地高中生。</p>
+<p>除了奥运会和世锦赛，在当地，其它低级别赛事的冠军多如牛毛。当地人提到长跑言必称冠军。能阻碍他们的，一个是激烈的内部竞争，另一个对他们来说，出去跑比赛依然不是件容易的事。</p>
+<p>27岁时的基普乔格算得上是位好好先生，低调谦逊，不缺努力。他的职业生涯开头很耀眼，17岁打破世界青少年纪录，而后拿下世锦赛冠军，惊为天人。首都内罗毕很快以他名字命名了一条街道，来纪念天才少年的诞生。</p>
+<p>此后十年间，基普乔格的表现不能算不出色，但距离曾经的期望值似乎还差点意思。所有年少成名者，身上都有类似的困扰</p>
+<p>名义上，别人视你为乔丹的接班人，事实却是，如果无法达到科比的成就，你的职业生涯都很难被认为是成功的。</p>
+<p>又好比，论实力，基普乔格已经达到布洛阿特峰、希夏邦马峰之类的高度，但绝大多数人提起世界最高峰，只说得出珠穆朗玛。知道乔戈里峰的都寥寥。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151209.png" alt="82年的贝克勒和84年的基普乔格，两人在跑道上对抗了生涯的上半场，下半场都转向公路。两位近十年最伟大的长跑者，也完美错开了高光项目"></p>
+<p>2.</p>
+<p>职业的马拉松选手大多分两类，一类早早就确定以马拉松为主项，平时偶尔跑个5000/万米比赛；另一类则出身更短距离的中长跑。生涯末年油箱还是满的，加速却慢慢变的吃力，所以就打个方向，把赛场从跑道转向公路。</p>
+<p>基普乔格之前，马拉松的“GOAT（Greatest of all time）”，海尔·格布雷西拉西耶，就是后一类的代表。</p>
+<p>「长跑之王」格布雷西拉西耶有着完美的职业生涯。事后看，贝克勒继承了他中长跑的衣钵，基普乔格则无缝衔接马拉松最强者名号。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151312.png" alt></p>
+<p>和绝大多数人一样， 基普乔格首次亮相的是半程马拉松。2012年9月，他延续了自己惊艳亮相的传统，在里尔半马以季军完赛。59分25秒的成绩也是有史以来首次跑半马第二快的。不到一个月后的世界半马锦标赛，基普乔格又以第六名完赛。</p>
+<p>3个月后，在巴萨罗那跑完第三个半程，基普乔格的“热身”正式结束，即将迎来自己的首个全程马拉松。</p>
+<p>基普乔格的教练是帕特里克·桑，在“选择哪场比赛作为首马”时，两人看法不同。基普乔格收到伦敦马拉松组委会的邀约，更想跑伦敦。桑却倾向去德国汉堡，即便远不如前者的名头响亮。</p>
+<p>桑是基普乔格的第一任教练，也是迄今唯一一位。他年轻时也是运动员，92年巴塞罗那奥运会拿到过银牌。相比运动生涯，他最大成就是慧眼识才，当了教练带出过杰弗里·卡姆沃罗、斯蒂芬·基普罗蒂奇（伦敦奥运会冠军）这些顶尖高手。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151401.png" alt></p>
+<p>帕特里克·桑和基普乔格住的不远。桑拿到奥运会银牌给基普乔格很大激励发，他给桑写了封信，询问是否可以为自己做一份训练计划。而后两人几次交流，便成为师徒，一晃二十年。</p>
+<p>基普乔格出身单亲家庭，父亲只是照片里的模糊剪影。十几岁跟了桑后，多少也在他身上寄托了类似父亲的情感。两人相差20岁，亦师亦友。</p>
+<p>桑并不是那种严苛的管理者，也从不觉得天赋能决定一切。他认为，“心理素质要比身体素质更重要。（肯尼亚）从不缺才华横溢的苗子，只有心理强大的人才会走的很远。”想必当年相中基普乔格，桑在他身上发现了些其它孩子没有的特质。</p>
+<p>桑见证过基普乔格年轻时候一飞冲天，也明白长期被其他人压制是什么滋味。基普乔格换项的选择，帕特里克·桑显然也很支持。对于首马，师徒两人关在房间聊了整整两个小时。“马拉松是个新的领域，你得学习更多东西。”这些是桑摆在明面的话。实际上，桑希望基普乔格能以旗开得胜的姿态开始马拉松。</p>
+<p>去汉堡成为冠军，和去伦敦拿个名次，两者在心气上完全没法比。用冠军开路，未来就会不一样。</p>
+<p>事实证明桑的确眼光独到，基普乔格也不负期望。</p>
+<p>在汉堡平坦的公路上，距离终点剩下不到十公里，基普乔格从第一集团突围，越跑越快，2小时05分30秒第一个完赛，并且还打破了赛会纪录。冲线后的基普乔格表现出少有的激动，“我为自己感到骄傲，我喜欢马拉松。”</p>
+<p>“没想到我能跑这么快。”</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151507.png" alt="对于首马的成功，基普乔格自己都有些诧异"></p>
+<p>如果存在另一个平行世界，另一个「基普乔格」会在同一年的伦敦拿到还不错的名次，庆幸换项的抉择并不赖，而后满世界参赛，在职业生涯后期成为一个小有名气的马拉松选手。</p>
+<p>好在假设并没有发生。</p>
+<p>3.</p>
+<p>至此，基普乔格28岁，身上多了「马拉松冠军」这个标签。</p>
+<p>“冠军”与“热门选手”的区别，类似“斗战胜佛”与“齐天大圣”。让孙悟空脱胎换骨的并不是去西天路上他又学会多少技能点，而是前后的心境截然不同了。</p>
+<p>这听起来有些唯心主义。不过对基普乔格来说，他的生活训练一直规律且认真，很难要求更多一些。他太需要一个冠军证明了。</p>
+<p>汉堡过去5个月后，基普乔格第一次跑柏林马拉松。柏林是一个见证奇迹的地方。诞生过11个世界纪录，世界最好的TOP15成绩，有9个在这里。最近16年，马拉松能不能破纪录，都是柏林说了算。</p>
+<p>尽管基普桑最终夺冠，也不负众望刷新了世界纪录，人们对亚军基普乔格的期望甚至更高一些。第二场马拉松便实现204，比起新科世界纪录也只慢了42秒。有人开玩笑，难不成基普乔格用了十年时间攒潜力，就是拗劲准备在马拉松大器晚成？</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151637.png" alt></p>
+<p>再往后，2014年春季，以速度闻名的鹿特丹马拉松，基普乔格拿到第二个冠军。30岁前夕，又在芝加哥拿下个人第一个WMM（世界马拉松大满贯）的冠军。</p>
+<p>跑马拉松的前两年，看得出基普乔格每一步选择堪比教科书，相当的工整。他在比赛频次上非常克制，每年只跑春秋两场比赛，每一次出场背后都意味着完成了一整套的训练计划。赛前采访，别人会说，我期望跑个什么成绩。基普乔格则表示，我的身体状况很好，也没有什么心理压力。</p>
+<p>开头两年收获3个冠军，唯一一次没夺冠还是同胞表现逆天破了纪录。成绩另说，光是能沉住气少参赛保训练这点，基普乔格就比很多东非选手难得了。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105151836.png" alt="基普乔格堪称冠军收割机，他也花了几年时间，把冲线时候狰狞的表情变成云淡风轻的微笑"></p>
+<p>东非盛产长跑好手，尤其高原上的肯尼亚和埃塞俄比亚。贫瘠了数百年加上生活动荡，当地人想改变生活的选择并不多，长跑已经是一个半产业化的途径。这催生出一群到处比赛赢取奖金的“赏金跑者”。</p>
+<p>东非的跑步者村落也有不成文的规定，冠军意味着全村人脸上有光，也顺带经济方面得到恩泽改善下生活。</p>
+<p>除了金字塔顶端的高手，绝大多数职业长跑运动员都要背负养家糊口的压力。比赛机会对他们而言非常珍贵，签约经纪团队后都会尽可能多的想要参赛。</p>
+<p>马拉松吃的毕竟是身体饭，比赛多了，训练难免缺少系统性，名次和成绩向来又很难两全。这也是东非长跑军团过去的一个现象，万神殿里冠军排排坐，却很难选出个公认的带头大哥。</p>
+<p>4.</p>
+<p>基普乔格和桑能长久合作，训练上的合拍是一方面，在参赛频次方面也几乎没有意见相左过。这点难能可贵。</p>
+<p>桑当年在一堆肉眼可见的天赋里相中基普乔格，很重要的原因是，“这孩子表现出很强的求知欲。”基普乔格总喜欢去研究分析跑步更深一层的东西，这种求知也让他变得非常善于思考，同时兼具独立冷静的特质。</p>
+<p>即便有过低谷，桑依然认为基普乔格是那种可以达到某些成就的人。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105152130.png" alt></p>
+<p>冷静爱思考，训练营的人叫基普乔格“哲学家”；所参加赛事金牌必达，跑步圈内私下叫他“冠军收割机”。2015年，基普乔格终于完成自己第一个伦敦马拉松。这里后来成为他的福地，接下来又两次折桂。同年秋天基普乔格再次选择跑柏林马拉松，并如愿夺冠。</p>
+<p>回顾过程，不夸张的讲，在当时那样的情况下还能淡定完赛的，可能也只有基普乔格了。</p>
+<p>比赛开始不久他发现自己的鞋垫松动了。而后每一步奔跑，鞋垫就一点点慢慢滑出。后面的整整16公里，两只鞋垫肆无忌惮的抽打脚踝，双脚在鞋子显然也好受不到哪去。桑也跟着紧张了全程。桑不怕基普乔格退赛，他只担心基普乔格会受伤。</p>
+<p>然后就这样穿着不合脚的鞋，基普乔格竟然出人意料的跑出自己的PB（个人最好成绩）2小时04分整！当天各大媒体头条照片里，脚下荧光色飞舞的鞋垫很抢镜，基普乔格则淡定的保持着微笑飞奔。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105152434.png" alt></p>
+<p>过程跌宕，结局欢喜。</p>
+<p>基普乔格证明了自己的专注和冷静足以应对42公里可能出现的任何问题。桑开始意识到，在马拉松这个距离，基普乔格是他所见过最具精神力量的选手——未来或许不是再多拿几个冠军的事了。</p>
+<p>媒体们事后细思极恐——换成别人，半遛着鞋垫早该退赛了，基普乔格却差点跑进204。真是神人。</p>
+<p>媒体们夸起来都很没节操。有人说，基普乔格是博尔特的「远程版本」。但有人马上反驳，博尔特有他一半自律？</p>
+<p>也是从2015年开始，按照WMM（世界马拉松大满贯）的算法，基普乔格拿到最高积分，成为公认的世界马拉松第一人。再往后连续蝉联至今，前无古人。</p>
+<p>2016年伦敦马拉松，基普乔格又拿下冠军还有新的赛会纪录，比当时的世界纪录只慢了8秒。双喜临门，已经31岁的他收到确认，将再次代表肯尼亚参加奥运会。</p>
+<p>四年前恐怕没有人会想到故事是这样发展的。</p>
+<p>27岁转项马拉松后，基普乔格把自己每一次的训练都记在笔记本上，直到今年柏林破纪录，他记满了整整15本。他的训练计划没有与众不同的地方。每个训练日，他用80-90%的能量把计划完成，然后比赛日，用100%的能量输出。</p>
+<p>没有伤病，没有压力，身体状态很好。确认了这三点，冠军就是探囊取物。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105152926.png" alt></p>
+<p>里约奥运会马拉松成了基普乔格的个人秀。前半程他还收着跑，后半程眼看夺金没什么压力，于是才放开了发力。赛后数据，后半程比前半程快了整整3分钟。</p>
+<p>基普乔格以领先第二名多达70秒的优势收获金牌。这也是自1972年以来奥运会马拉松冠亚军的最大差距。</p>
+<p>现代奥运会举办以来的不成文传统，马拉松被安排在奥运会的最后一天举行。比赛最后在体育场结束，意在向奥运精神致敬、向这座城市致敬。</p>
+<p>四年又四年，基普乔格被视为夺冠热门，也曾看着贝克勒们绝城而去，而自己的国家队大门徐徐关上。在快32岁的时候王者归来，他只是说，每次训练和比赛我都很高兴，“跑步是我的生命。”</p>
+<p>5.</p>
+<p>2017年，基普乔格正规的马拉松赛只有下半年的柏林，上半年重头戏是Nike的Breaking 2“破二挑战”。Nike组了基普乔格等三人，在意大利蒙扎赛道尝试人类是否能在2小时内跑完42.195公里。</p>
+<p>很少有人知道“破二”前，基普乔格和这个挑战的策划团队面对了很大压力。社交媒体上不看好的声音山呼海啸，绝大多数评论认为，人类并不具备挑战成功的可能。即便你是基普乔格。</p>
+<p>甚至于，身为教练的桑在挑战开始前几天表现的都非常紧张，设想过很多可能出现的状况。反倒基普乔格则异常的淡定。他充满信心，又不会多说任何一句大话。</p>
+<p>塔德塞和德西萨过早的落后既定配速并未给基普乔格太大影响。最终的最终，他只比2小时超出了25秒。</p>
+<p>兴许这是最累的一次42.195公里，基普乔格确实拼劲了全力。仔细看直播画面，最后几公里不经意已然流露出咬牙力撑的表情，但加速冲线时，他依然保持着微笑。这是基普乔格的招牌表情，他习惯用轻描淡写的方式去给力求结果的证明者一个答案。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200105154119.png" alt></p>
+<p>关于破二的结果，基普乔格至始至终没流露出过任何遗憾。他觉得“遗憾是缺乏自律的表现”。以及，“人类的目标并不存在什么极限。”基普乔格后来自己说了个细节，跑完瞬间他忍不住流泪了。正巧当时开始下雨，泪水就得以顺其自然的藏匿起来。</p>
+<p>离开蒙扎后，基普乔格回到酒店，独自到旁边公园又慢跑了很久。只属于他一个人的闲暇时刻。</p>
+<p>6.</p>
+<p>纽约时报已经称基普乔格为“有史以来最伟大的运动员”。他收获很多冠军，还拿到奥运会金牌，也打破了世界纪录。经济状况良好。即便如此，基普乔格依然维持了自己在肯尼亚训练营的生活，条件堪比苦行僧。</p>
+<p>营员们住在非常简陋的合住寝室，使用公共的卫生间，自己从井里打水，轮流打扫卫生，手洗每天换洗的训练服装。他们有严格的作息时间表，吃饭睡觉，互相帮助拉伸和按摩。当太阳升起训练营的选手们开始奔跑，野外的泥路尘土飞扬，犹如非洲动物一场小型的迁徙一般。</p>
+<p>每个人每天会跑上几十公里，每周跑量则会惊人的超过两百公里。</p>
+<p>训练营的生活基普乔格过了整整19年。跑马拉松后，他的生活越发简单。</p>
+<p>很长时间，桑和基普乔格的沟通类似于布置/完成作业，“基普乔格是所有人里最认真执行的。他也会请教我很多，告诉我他自己的理解和分析。”室友说他生活的特别有纪录，不管是吃饭还是睡觉，他总非常按时的进行。另外，“总是第一个到训练场。”</p>
+<p>马拉松热潮到来后，体育记者们扛着长枪短炮涌入各个“长跑者小镇”，试图挖出些成功的秘籍。最终的结论，基因天赋也好，环境外因也好，都只是已知结果的假设：他们以最适合自己的方式生活训练，最终取得了成功。</p>
+<p>分析过基普乔格的人，说他有最适合马拉松的身体素质，但柔韧性却出人意料的差，挺直膝盖，手指居然无法弯腰触碰到脚趾。以及，每天要喝很多加了糖的茶。</p>
+<p>他的微笑不是保护色，是分散痛苦的方式。对手们认为基普乔格有种能力，能将马拉松这样一个并不愉悦的过程变得像一场演出一样，很圆满的呈现出来。</p>
+<p>在前辈伯纳德·拉加特眼里，基普乔格还是一个很好的演说家，无论赞助商活动或者专访，基普乔格一直都在思考，说出的话，很少有雷同重复的。</p>
+<p>33岁，用了5年时间拿到10个马拉松冠军，包括两个月前在柏林马拉松大幅提升的世界纪录；</p>
+<p>32岁，尝试了前无古人的破二挑战；</p>
+<p>31岁，时隔8年再一次参加奥运，毫无悬念的拿到金牌；</p>
+<p>30岁，甩着鞋垫、一脚血泡的夺冠，而立之年成为公认的马拉松第一人；</p>
+<p>28岁，拿下人生第一个马拉松冠军；</p>
+<p>27岁，站在运动生涯的岔路口，没有浪费太多时间就做出了决定。</p>
+<p>可能他觉得，仅仅拽住当下那些是不够的，自己还是得有个不一样的世界？他一直矜矜业业做了所有该做的，不缺天赋，非常的自律，也一直善于思考。属于基普乔格的时代只是没有确定开启日期——但在选择马拉松后，豁然开朗。</p>
+<p>于是在职业生涯的下半场，一个个终将发生的故事，也就水银泻地般兑现出来。</p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200104235521.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200104235356.png" alt></p>
+<blockquote>
+<p>文章出处 <a href="https://zhuanlan.zhihu.com/p/49494261" target="_blank" rel="noopener">埃鲁德·基普乔格：成为传奇</a></p>
+</blockquote>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/01/2019/" itemprop="url">写在2020年之初-工作两年半的想法</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-01T14:43:33.000Z" itemprop="datePublished">1月 1 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1191 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20200106141713.png" alt></p>
+<blockquote>
+<p>当你老了，回顾一生，就会发觉：什么时候出国读书，什么时候决定做第一份职业、何时选定了对象而恋爱、什么时候结婚，其实都是命运的巨变。只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。</p>
+</blockquote>
+<h2 id="系统而深入的获取知识"><a href="#系统而深入的获取知识" class="headerlink" title="系统而深入的获取知识"></a>系统而深入的获取知识</h2><p>衡量程序员优劣的其中一个维度是基础是否牢固。你想摆脱简单的重复性劳动去负责更重要的模块基础这块是无法避免的。</p>
+<p>js 中的 Promise 原理了解 FRP 才能理解的更深入；vue 的 keep-alive 组件使用了 LRU 算法；模板编译 client-server 模型是 web 开发的理论依据， 你对他掌握的如何取决于你自身网络协议的功底；AST (abstract syntax tree) 是编译原理中的理论、对操作系统了解的不够不管你写什么后端语言，也只会是个接口开发人员。</p>
+<p>2020 年减少碎片化信息的获取，碎片化信息可以作为一个了解知识的入口但不能直接靠他来提升技能，利用业余时间看书或者线上 MOOC 的方式去系统的获取知识。也是避免 提前工作 ( overworking ) 情况的发生。</p>
+<p>过度工作（overworking）：劳动者提前透支自己的技能，被工作拖着走，这种情况下主观能动性会收到很大影响。</p>
+<h2 id="输出意识"><a href="#输出意识" class="headerlink" title="输出意识"></a>输出意识</h2><p>来北京之后学到的最重要的一点一定是「输出意识」。在技术论坛里看过的不代表自己理解掌握了，提高这些碎片化知识的转化率需要个人记录和实践，眼睛觉得看到的东西很简单、可是手不这么认为。「输出意识」的具体表现为文档、博客、一段验证性质的代码片段；甚至可以为自己吃过的某道菜和看过的电影和书籍都可以写自己的评价。</p>
+<h2 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h2><h3 id="目前自己负责的"><a href="#目前自己负责的" class="headerlink" title="目前自己负责的"></a>目前自己负责的</h3><p>工作后接触到的业务方向一直是 B 端，基本上写了两年多的 web 页面，主要类型是复杂的 web 中后台系统。实际上业务是千变万化的，自己的学习重点要放在数据流的处理方式、流行框架的工作机制上。一方面要寻求更大的业务挑战，三年是一个槛如果目前的工作环境无法满足自己的需求那么就要考虑跳槽。另一方面探索 low code 这种业务处理模式，类似 <a href="https://github.com/alibaba/uform" target="_blank" rel="noopener">uform</a>、<a href="https://github.com/alibaba/form-render" target="_blank" rel="noopener">formRender</a> 的表单处理方案。</p>
+<h3 id="目前不是自己负责的但接触很多的"><a href="#目前不是自己负责的但接触很多的" class="headerlink" title="目前不是自己负责的但接触很多的"></a>目前不是自己负责的但接触很多的</h3><p>自己的第一家公司规模比较大，基础技术设施比较完备，所以可以只专心做一个系统甚至一个模块的开发，专注于开发语言本身。来到 Keep 后情况就大不同，年轻公司的基础技术平台建设几乎为零，自己也直接或间接的参与了公司的基础技术平台建设，从 SSO、BFF 代理服务到CI CD 平台、前端研发体系、全链路压测平台、运维体系、复杂工单的流转平台等等。</p>
+<h2 id="虚荣指标"><a href="#虚荣指标" class="headerlink" title="虚荣指标"></a>虚荣指标</h2><p>虚荣指标对自己目标的达成有一定促进意义，所以 2020 年也给自己定几个虚荣指标督促自己：</p>
+<p>1、 每天看书</p>
+<ul>
+<li>计划 《SICP》已完成 3 0 页（JavaScript 语言的开发者是 scheme 的狂热粉丝， SICP 曾是很多高校的基础读物，其中使用lisp 的一种方言 scheme 语言来教学， 可以提升对不同编程语言的系统性认识）</li>
+</ul>
+<p>2、 学习一门新的编程语言（主要应用在 server）</p>
+<ul>
+<li>把 Java Spring Boot 应用在业务中，有条件就做起来。</li>
+</ul>
+<p>3、 坚持每周刷题 leetcode</p>
+<ul>
+<li>「拳不留手，曲不离口」养家糊口的技能不能怠慢。</li>
+</ul>
+<p>4、 github 每月活跃 &gt;= 28 天</p>
+<ul>
+<li>纯粹的虚荣指标</li>
+</ul>
+<p>5、 坚持写博客，持续输出</p>
+<ul>
+<li>可以当作个人的 OKR。</li>
+</ul>
+<p>6、减少焦虑、理性看待各种博文。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2020/01/01/SICP-1/" itemprop="url">SICP-1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-01-01T12:34:38.000Z" itemprop="datePublished">1月 1 2020</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 561 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="Lisp-语言具有的特性之一"><a href="#Lisp-语言具有的特性之一" class="headerlink" title="Lisp 语言具有的特性之一"></a>Lisp 语言具有的特性之一</h2><p>计算过程的 Lisp 描述 （又称为过程） 本身又可以作为 Lisp 的数据来表示和操作。</p>
+<h2 id="程序设计语言的基本元素"><a href="#程序设计语言的基本元素" class="headerlink" title="程序设计语言的基本元素"></a>程序设计语言的基本元素</h2><ol>
+<li><p>基本表达形式， 用于表示语言所关心的最简单个体</p>
+</li>
+<li><p>组合的方法，通过它们可以从比较简单的东西发出</p>
+</li>
+<li><p>抽象的方法 复合过程</p>
+</li>
+</ol>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>Lisp 中使用的是前缀表达书</p>
+<h3 id="命名和环境"><a href="#命名和环境" class="headerlink" title="命名和环境"></a>命名和环境</h3><p>变量：通过名字去使用变量的方式</p>
+<p><figure class="highlight lisp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">( <span class="hljs-name">define</span> size <span class="hljs-number">2</span> )</span><br></pre></td></tr></table></figure></p>
+<p>环境：我们一般将值与符号进行关联，然后再去使用这个变量。这就意味着解释器必须维护某种存储的能力，以便保持有关名字的 「名字-值」的对偶的轨迹，这种存储叫做环境。在一个计算过程中会包许多个不同的环境。</p>
+<h3 id="复合过程"><a href="#复合过程" class="headerlink" title="复合过程"></a>复合过程</h3><ul>
+<li>数和算术运算是基本的数据和过程</li>
+<li>组合式的嵌套提供了一种组织多个操作的方法</li>
+<li>定义是一种受限的抽象手段，它为名字相应的值</li>
+</ul>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">  define square (x)</span><br><span class="line">    (* x x)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>应用序和正则序</p>
+<p>正则序：完全展开后而归约。<br>应用序列： 解释器中的，先求值参数而后应用的方式。</p>
+<h2 id="条件表达式和谓词"><a href="#条件表达式和谓词" class="headerlink" title="条件表达式和谓词"></a>条件表达式和谓词</h2><p>(<br>  define (abs x)<br>    (cond ((x &gt; 0) x)<br>          ((x = 0) 0)<br>          ((x &lt; -) (-x))<br>    )<br>)</p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="练习-1-2"><a href="#练习-1-2" class="headerlink" title="练习 1.2"></a>练习 1.2</h3><p><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-name"><span class="hljs-builtin-name">/</span></span> </span><br><span class="line">  (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> <span class="hljs-number">5</span> <span class="hljs-number">4</span> (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> <span class="hljs-number">2</span> ( - <span class="hljs-number">3</span> ( + <span class="hljs-number">6</span> (<span class="hljs-name"><span class="hljs-builtin-name">/</span></span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>) ))))</span><br><span class="line">  (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> <span class="hljs-number">3</span> (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> <span class="hljs-number">6</span> <span class="hljs-number">2</span>) (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> <span class="hljs-number">2</span> <span class="hljs-number">7</span>))</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h3 id="练习-1-3"><a href="#练习-1-3" class="headerlink" title="练习 1.3"></a>练习 1.3</h3><p><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">  define (<span class="hljs-name"><span class="hljs-builtin-name">max</span></span> a b)</span><br><span class="line">    (</span><br><span class="line">      cond ((<span class="hljs-name">a</span> &gt; b) a)</span><br><span class="line">            ((<span class="hljs-name">a</span> = b) a)</span><br><span class="line">            ((<span class="hljs-name">a</span> &lt; b) b)</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h3 id="练习-1-5"><a href="#练习-1-5" class="headerlink" title="练习 1.5"></a>练习 1.5</h3><h3 id="牛顿法求平方根"><a href="#牛顿法求平方根" class="headerlink" title="牛顿法求平方根"></a>牛顿法求平方根</h3><h2 id="练习-1-6"><a href="#练习-1-6" class="headerlink" title="练习 1.6"></a>练习 1.6</h2><h2 id="练习-1-7"><a href="#练习-1-7" class="headerlink" title="练习 1.7"></a>练习 1.7</h2><h2 id="练习-1-8"><a href="#练习-1-8" class="headerlink" title="练习 1.8"></a>练习 1.8</h2><p>scheme 使用前缀表达式来写</p>
+<p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
+<p>使用 scheme 写一个递归</p>
+<p><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">fact</span> n)</span><br><span class="line">  (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> n <span class="hljs-number">1</span>)</span><br><span class="line">    <span class="hljs-number">1</span></span><br><span class="line">    (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> n (<span class="hljs-name">fact</span> (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> n <span class="hljs-number">1</span>)))</span><br><span class="line">  )</span><br><span class="line">)</span><br><span class="line">(<span class="hljs-name">fact</span> <span class="hljs-number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>scheme 中的 cond<br><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> (<span class="hljs-name">testCond</span> x)</span><br><span class="line">  (<span class="hljs-name"><span class="hljs-builtin-name">cond</span></span></span><br><span class="line">    ((<span class="hljs-name"><span class="hljs-builtin-name">&lt;=</span></span> x <span class="hljs-number">0</span>) (<span class="hljs-name"><span class="hljs-builtin-name">-</span></span> <span class="hljs-number">0</span> x))</span><br><span class="line">    ((<span class="hljs-name"><span class="hljs-builtin-name">&gt;</span></span> x <span class="hljs-number">1</span>) x)</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>scheme 中定义函数的两种形式</p>
+<p>第一种</p>
+<p><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> Hello</span><br><span class="line">  (</span><br><span class="line">    lambda (<span class="hljs-name">a</span> b c)</span><br><span class="line">      (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> a b c)</span><br><span class="line">  )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">(<span class="hljs-name">Hello</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>第二种</p>
+<p><figure class="highlight scheme hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">  define </span><br><span class="line">    ( Hello a b c)</span><br><span class="line">      (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> a b c)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>参考</p>
+<ul>
+<li><p><a href="https://www.zhihu.com/question/28698429" target="_blank" rel="noopener">如何理解计算机中的谓词 Predicate</a></p>
+</li>
+<li><p><a href="https://repl.it/repls/DistinctOnlyOrganization" target="_blank" rel="noopener">因为比较懒所以没有在本地搭建开发环境,直接使用的是 repl.it 这样一个 web scheme enviroment </a></p>
+</li>
+</ul>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/12/28/javascript-new/" itemprop="url">实现 JavaScript 中的 new 关键字</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-28T17:23:40.000Z" itemprop="datePublished">12月 28 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 204 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>众所周知 JavaScript 是一门基于原型、函数先行的多范式语言，它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。</p>
+<p>想要知道如何实现 new 关键字我们就得搞清楚 new 做了什么。</p>
+<h2 id="JavaScript-中的-new-做了什么"><a href="#JavaScript-中的-new-做了什么" class="headerlink" title="JavaScript 中的 new 做了什么 ?"></a>JavaScript 中的 new 做了什么 ?</h2><p>按照 <a href="https://es5.github.io/#x13.2.2" target="_blank" rel="noopener">spec</a> ,new 依次做了以下 4 件事情：</p>
+<ol>
+<li>创建一个对象 new Object</li>
+<li>链接该对象（即设置该对象的构造函数）到另一个对象 ；</li>
+<li>将步骤 1 新创建的对象作为 this 的上下文；</li>
+<li>如果构造函数没有返回对象则返回 this</li>
+</ol>
+<p>最终实现代码</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function objFactory() &#123;</span><br><span class="line">  var Constructor = [].shift.call(arguments)</span><br><span class="line">  var obj = Object.create(Constructor.prototype)</span><br><span class="line">  var ret = Constructor.apply(obj, arguments)</span><br><span class="line">  return (typeof ret instanceof Object || ret === null) ? ret : obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/12/26/javascript-extends/" itemprop="url">javascript-extends</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-26T03:23:44.000Z" itemprop="datePublished">12月 26 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            几秒 读完 (约 10 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191226112232.png" alt></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/o/2019/12/26/JavaScript-Excution/" itemprop="url">How does the “this” keyword work?</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-12-26T02:23:19.000Z" itemprop="datePublished">12月 26 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 133 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>最近在 stackoverflow 看到了一个问题: this 是如何工作的。要想解释这个问题，需要对 JavaScript Exuction 和 JavaScript Scope 有足够的了解。</p>
+<p>按照 JavaScript Specification</p>
+<ol>
+<li><p>Initial global execution context</p>
+</li>
+<li><p>Entering eval code</p>
+</li>
+<li><p>Entering function code </p>
+</li>
+<li><p>Arrow function</p>
+</li>
+</ol>
+<blockquote>
+<p>Arrow functions don’t have their own this…. binding. Instead, those identifiers are  resolved in the lexical scope like any other variable. That means that inside an arrow function, this…refer(s) to the values of this in the environment the arrow function is defined in.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/EPSON-LEE/image-hosting/master/20191226112232.png" alt></p>
+<p><a href="https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work/3127440#3127440" target="_blank" rel="noopener">How does the “this” keyword work?</a></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+        
+<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+    <div class="pagination-previous is-invisible is-hidden-mobile">
+        <a href="/o/page/0/">上一页</a>
+    </div>
+    <div class="pagination-next">
+        <a href="/o/page/2/">下一页</a>
+    </div>
+    <ul class="pagination-list is-hidden-mobile">
+        
+        <li><a class="pagination-link is-current" href="/o/">1</a></li>
+        
+        <li><a class="pagination-link" href="/o/page/2/">2</a></li>
+        
+        <li><a class="pagination-link" href="/o/page/3/">3</a></li>
+        
+    </ul>
+</nav>
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 leejiahao&nbsp;
+                我所做的一切，不过是在取悦一个影子 </a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/EPSON-LEE" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/o/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/o/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/o/js/insight.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</body>
+</html>
